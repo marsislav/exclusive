@@ -1,4 +1,3 @@
-<H1>rdtrsdtrtertretr</H1>
 <?php
 
 function exclusive_customize_register( $wp_customize ) {

@@ -24,6 +24,6 @@ add_theme_support('post-formats', array (
 add_theme_support('align-wide');
 
 //Custom image sizes
-add_image_size('hs21-image', 1200, 0);
+add_image_size('exclusive-image', 1200, 0);
 }
 add_action('after_setup_theme', 'exclusive_theme_support');

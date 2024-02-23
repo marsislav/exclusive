@@ -74,26 +74,14 @@ wp_reset_postdata();
                                 </div>
                             </div>
                         </div>
-                        <div class="top-link flex-lg-wrap">
-                            <i class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2"> <span class="text-body"><?php echo date("d/m/Y");?></span></i>
-                            <div class="d-flex icon">
-                                <p class="mb-0 text-white me-2">Follow Us:</p>
-                                <a href="" class="me-2"><i class="fab fa-facebook-f text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-twitter text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-linkedin-in text-body link-hover"></i></a>
-                                <a href="" class="me-2"><i class="fab fa-skype text-body link-hover"></i></a>
-                                <a href="" class=""><i class="fab fa-pinterest-p text-body link-hover"></i></a>
-                            </div>
-                        </div>
+                        
                     </div>
                 </div>
             </div>
             <div class="container-fluid bg-light">
                 <div class="container px-0">
                     <nav class="navbar navbar-light navbar-expand-xl">
-                        <a href="index.html" class="navbar-brand mt-3">
+                        <a href="<?php echo esc_url(home_url('/')); ?>" class="navbar-brand mt-3">
 
                         <?php if (has_custom_logo()) {
                         the_custom_logo();
@@ -110,9 +98,23 @@ wp_reset_postdata();
                             <span class="fa fa-bars text-primary"></span>
                         </button>
                         <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
-                            <div class="navbar-nav mx-auto border-top">
-                                <a href="index.html" class="nav-item nav-link active">Home</a>
-                                <a href="detail-page.html" class="nav-item nav-link">Detail  Page</a>
+                            <div class="navbar-nav mx-auto border-top" role="navigation" aria-label="<?php esc_html_e('Main navigation', 'exclusive');?>">
+                            <?php /*wp_nav_menu(array(
+                                'theme_location' => 'main-menu',
+                            ));*/ ?>
+
+
+
+<?php
+        wp_nav_menu(array(
+            'theme_location' => 'main-menu',
+            'container' => false,
+            'menu_class' => 'navbar-nav mx-auto border-top',
+            'walker' => new Custom_Nav_Walker(),
+        ));
+        ?>
+
+                                <!--<a href="index.html" class="nav-item nav-link">Home</a>
                                 <a href="404.html" class="nav-item nav-link">404 Page</a>
                                 <div class="nav-item dropdown">
                                     <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
@@ -123,7 +125,7 @@ wp_reset_postdata();
                                         <a href="#" class="dropdown-item">Dropdown 4</a>
                                     </div>
                                 </div>
-                                <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+                                <a href="contact.html" class="nav-item nav-link">Contact Us</a>-->
                             </div>
                             <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0">
                                 <div class="d-flex">
@@ -167,8 +169,7 @@ wp_reset_postdata();
                     </div>
                     <div class="modal-body d-flex align-items-center">
                         <div class="input-group w-75 mx-auto d-flex">
-                            <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                            <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
+                            <?php get_search_form(true);?>
                         </div>
                     </div>
                 </div>

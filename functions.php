@@ -13,58 +13,65 @@ function exclusive_postedOn() {?>
                             </time></a>
 <?php }
 
-function exclusive_scripts() {
 
 
-    wp_register_style( 'animate', get_template_directory_uri().'/lib/animate/animate.min.css'); 
-    wp_enqueue_style( 'animate' );
-    
-    
-    wp_register_style( 'owl', get_template_directory_uri().'/lib/owlcarousel/assets/owl.carousel.min.css'); 
-    wp_enqueue_style( 'owl' );	
-
-
-
-    wp_register_style( 'bootstrap', get_template_directory_uri().'/css/bootstrap.min.css'); 
-    wp_enqueue_style( 'bootstrap' );	
-    
-    wp_register_style( 'exclusive_style', get_template_directory_uri().'/css/style.css'); 
-    wp_enqueue_style( 'exclusive_style' );
-
-
-
-
-
-    //Scripts
-
-    wp_register_script( 'bootstrap',get_template_directory_uri().'/js/bootstrap.bundle.min.js', array(), false, true );
-    wp_register_script( 'easing',get_template_directory_uri().'/lib/easing/easing.min.js', array(), false, true );
-    wp_register_script( 'waypoints',get_template_directory_uri().'/lib/waypoints/waypoints.min.js', array(), false, true );
-
-    wp_register_script( 'owl',get_template_directory_uri().'/lib/owlcarousel/owl.carousel.min.js', array(), false, true );
-
-    wp_register_script( 'exclusive_main',get_template_directory_uri().'/js/main.js', array(), false, true );
-
-  
-
-
-
-    wp_enqueue_script( 'jquery' );
-    wp_enqueue_script( 'bootstrap');
-    wp_enqueue_script( 'easing');
-    wp_enqueue_script( 'waypoints');
-    wp_enqueue_script( 'owl');
-    wp_enqueue_script( 'exclusive_main');
-
-
-	//Miro
-
-}
-add_action( 'wp_enqueue_scripts', 'exclusive_scripts' );
-
-
+require_once('lib/functions/enqueue.php');
 require_once('lib/functions/post-views-counter.php');
 require_once('lib/functions/pupular-tags.php');
 require_once('lib/functions/theme-support.php');
 require_once('lib/functions/sidebars.php');
 require_once('lib/functions/customize.php');
+require_once('lib/functions/navigation.php');
+
+class Custom_Nav_Walker extends Walker_Nav_Menu {
+    function start_lvl(&$output, $depth = 0, $args = null) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "\n$indent<ul class=\"dropdown-menu\">\n";
+    }
+
+    function end_lvl(&$output, $depth = 0, $args = null) {
+        $indent = str_repeat("\t", $depth);
+        $output .= "$indent</ul>\n";
+    }
+
+    function start_el(&$output, $item, $depth = 0, $args = null, $id = 0) {
+        $indent = ($depth) ? str_repeat("\t", $depth) : '';
+
+        $classes = empty($item->classes) ? array() : (array) $item->classes;
+        $classes[] = 'nav-item';
+
+        $args = (object) $args;
+
+        $class_names = join(' ', apply_filters('nav_menu_css_class', array_filter($classes), $item, $args));
+        $class_names = ' class="' . esc_attr($class_names) . '"';
+
+        $id = apply_filters('nav_menu_item_id', 'menu-item-'. $item->ID, $item, $args);
+        $id = strlen($id) ? ' id="' . esc_attr($id) . '"' : '';
+
+        $output .= $indent . '<li' . $id . $class_names . '>';
+
+        $atts = array();
+        $atts['title']  = ! empty( $item->attr_title ) ? $item->attr_title : '';
+        $atts['target'] = ! empty( $item->target )     ? $item->target     : '';
+        $atts['rel']    = ! empty( $item->xfn )        ? $item->xfn        : '';
+        $atts['href']   = ! empty( $item->url )        ? $item->url        : '';
+
+        $atts = apply_filters('nav_menu_link_attributes', $atts, $item, $args);
+
+        $attributes = '';
+        foreach ( $atts as $attr => $value ) {
+            if ( ! empty( $value ) ) {
+                $value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+                $attributes .= ' ' . $attr . '="' . $value . '"';
+            }
+        }
+
+        $item_output = $args->before;
+        $item_output .= '<a'. $attributes .'>';
+        $item_output .= $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after;
+        $item_output .= '</a>';
+        $item_output .= $args->after;
+
+        $output .= apply_filters('walker_nav_menu_start_el', $item_output, $item, $depth, $args);
+    }
+}
