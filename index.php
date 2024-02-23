@@ -1,4 +1,8 @@
-<?php get_header() ; ?>
+<?php
+
+use function FakerPress\get;
+
+ get_header() ; ?>
 
         <!-- Single Product Start -->
         <div id="post-<?php the_ID(); ?>" <?php post_class("container-fluid py-5"); ?>>
@@ -53,10 +57,12 @@ wp_reset_postdata();*/
     <?php } ?>
 
 
-                            
+    <?php if (has_category()) {?>
                             <div class="position-absolute text-white px-4 py-2 bg-primary rounded" style="top: 20px; right: 20px;">                                              
-                                Busimess
-                            </div>
+                               
+                                    <?php echo get_the_category_list(); ?>  
+                                
+                            </div> <?php } ?>
                         </div>
                         <div class="d-flex justify-content-between">
                            <?php exclusive_postedOn(); ?>
@@ -67,71 +73,23 @@ wp_reset_postdata();*/
                         <div class="my-4">
                             <?php the_content();?>
                         </div>
-                        
-                        <div class="tab-class">
-                            <div class="d-flex justify-content-between border-bottom mb-4">
-                                <ul class="nav nav-pills d-inline-flex text-center">
-                                    <li class="nav-item mb-3">
-                                        <h5 class="mt-2 me-3 mb-0">Tags:</h5>
-                                    </li>
-                                    <li class="nav-item mb-3">
-                                        <a class="d-flex py-2 bg-light rounded-pill active me-2" data-bs-toggle="pill" href="#tab-1">
-                                            <span class="text-dark" style="width: 100px;">Sports</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item mb-3">
-                                        <a class="d-flex py-2 bg-light rounded-pill me-2" data-bs-toggle="pill" href="#tab-2">
-                                            <span class="text-dark" style="width: 100px;">Magazine</span>
-                                        </a>
-                                    </li>
-                                    <li class="nav-item mb-3">
-                                        <a class="d-flex py-2 bg-light rounded-pill me-2" data-bs-toggle="pill" href="#tab-3">
-                                            <span class="text-dark" style="width: 100px;">Politics</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </div>
-                            <div class="tab-content">
-                                <div id="tab-1" class="tab-pane fade show active">
-                                    <div class="row g-4 align-items-center">
-                                        <div class="col-3">
-                                            <img src="img/footer-4.jpg" class="img-fluid w-100 rounded" alt="">
-                                        </div>
-                                        <div class="col-9">
-                                            <h3>Amelia Alex</h3>
-                                            <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                             but also the leap into electronic.
-                                            </p>
-                                        </div>
-                                    </div>
+                        <?php if (has_tag()) {?>
+                            <div class="tab-class">
+                                <div class="d-flex justify-content-between border-bottom mb-4">
+                                    <ul class="nav nav-pills d-inline-flex text-center">
+                                        <li class="nav-item mb-3">
+                                            <h5 class="mt-2 me-3 mb-0"><?php _e('Tags', 'exclusive') ?>:</h5>
+                                        </li>
+                                        <li class="nav-item mb-3">
+                                            <a class="d-flex py-2 bg-light rounded-pill active me-2" data-bs-toggle="pill" href="#tab-1">
+                                                <span class="text-dark" style="width: 100px;">Sports</span>
+                                            </a>
+                                        </li>
+                                    </ul>
                                 </div>
-                                <div id="tab-2" class="tab-pane fade show">
-                                    <div class="row g-4 align-items-center">
-                                        <div class="col-3">
-                                            <img src="img/footer-5.jpg" class="img-fluid w-100 rounded" alt="">
-                                        </div>
-                                        <div class="col-9">
-                                            <h3>Amelia Alex</h3>
-                                            <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                             but also the leap into electronic.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div id="tab-3" class="tab-pane fade show">
-                                    <div class="row g-4 align-items-center">
-                                        <div class="col-3">
-                                            <img src="img/footer-6.jpg" class="img-fluid w-100 rounded" alt="">
-                                        </div>
-                                        <div class="col-9">
-                                            <h3>Amelia Alex</h3>
-                                            <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                             but also the leap into electronic.
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <?php } ?>
+
+                            <?php get_template_part('template-parts/single/author');?>
                         </div>
                         <div class="bg-light rounded my-4 p-4">
                             <h4 class="mb-4">You Might Also Like</h4>

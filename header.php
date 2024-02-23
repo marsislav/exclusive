@@ -123,7 +123,7 @@ wp_reset_postdata();
                                                 if ( $latest_post ) {
                                                     $last_post_date = strtotime( $latest_post[0]['post_date'] );
                                                     $formatted_date = date( 'F j, Y', $last_post_date );
-                                                    echo "<small>The date of the last post is: " . $formatted_date . "</small>"; ;
+                                                    echo "<small>Last Posts`s date is: " . $formatted_date . "</small>"; ;
                                                 } else {
                                                     echo "<small>No posts found.</small>";
                                                 }
