@@ -22,8 +22,8 @@
  
     </head>
 
-    <body <?php body_class();
-    ?>>
+    <body <?php body_class();?>>
+    <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'exclusive' ); ?></a>
 
         <!-- Spinner Start -->
         <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
@@ -98,34 +98,16 @@ wp_reset_postdata();
                             <span class="fa fa-bars text-primary"></span>
                         </button>
                         <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
-                            <div class="navbar-nav mx-auto border-top" role="navigation" aria-label="<?php esc_html_e('Main navigation', 'exclusive');?>">
-                            <?php /*wp_nav_menu(array(
-                                'theme_location' => 'main-menu',
-                            ));*/ ?>
+                            <div class="navbar-nav mx-auto border-top" role="navigation" aria-label="<?php esc_attr_e('Main navigation', 'exclusive');?>">
+                           <?php
+                                wp_nav_menu(array(
+                                    'theme_location' => 'main-menu',
+                                    'container' => false,
+                                    'menu_class' => 'navbar-nav mx-auto border-top',
+                                    'walker' => new Custom_Nav_Walker(),
+                                ));
+                            ?>
 
-
-
-<?php
-        wp_nav_menu(array(
-            'theme_location' => 'main-menu',
-            'container' => false,
-            'menu_class' => 'navbar-nav mx-auto border-top',
-            'walker' => new Custom_Nav_Walker(),
-        ));
-        ?>
-
-                                <!--<a href="index.html" class="nav-item nav-link">Home</a>
-                                <a href="404.html" class="nav-item nav-link">404 Page</a>
-                                <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
-                                    <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                        <a href="#" class="dropdown-item">Dropdown 1</a>
-                                        <a href="#" class="dropdown-item">Dropdown 2</a>
-                                        <a href="#" class="dropdown-item">Dropdown 3</a>
-                                        <a href="#" class="dropdown-item">Dropdown 4</a>
-                                    </div>
-                                </div>
-                                <a href="contact.html" class="nav-item nav-link">Contact Us</a>-->
                             </div>
                             <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0">
                                 <div class="d-flex">
@@ -177,13 +159,15 @@ wp_reset_postdata();
         </div>
         <!-- Modal Search End -->
 
-
-        <!-- Features Start -->
+<?php   display_last_post_in_random_categories();?>
+        <!-- Features Start 
         <div class="container-fluid features mb-5">
             <div class="container py-5">
-                <div class="row g-4">
+                <div class="row g-4"> 
                     <div class="col-md-6 col-lg-6 col-xl-3">
                         <div class="row g-4 align-items-center features-item">
+
+                       
                             <div class="col-4">
                                 <div class="rounded-circle position-relative">
                                     <div class="overflow-hidden rounded-circle">
@@ -269,4 +253,4 @@ wp_reset_postdata();
                 </div>
             </div>
         </div>
-        <!-- Features End -->
+        Features End -->

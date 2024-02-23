@@ -1,6 +1,5 @@
 <?php get_header() ; ?>
 
-
         <!-- Single Product Start -->
         <div id="post-<?php the_ID(); ?>" <?php post_class("container-fluid py-5"); ?>>
             <div class="container py-5">
@@ -10,8 +9,7 @@
                     <li class="breadcrumb-item active text-dark"><?php the_title();?></li>
                 </ol>
                 <div class="row g-4">
-
-
+            
                 
                <!-- <h1>ПОСЛЕДЕН ПОСТ</h1>-->
                 <?php /*
@@ -39,7 +37,7 @@ wp_reset_postdata();*/
 ?>
       
                     <div class="col-lg-8">
-                        <div class="mb-4">
+                        <div class="mb-4" id="primary">
                         <?php if(have_posts()){?>
         <?php while(have_posts()){?>
             <?php the_post();?>
