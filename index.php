@@ -91,29 +91,7 @@ wp_reset_postdata();*/
 
                             <?php get_template_part('template-parts/single/author');?>
                         </div>
-                        <div class="bg-light rounded my-4 p-4">
-                            <h4 class="mb-4">You Might Also Like</h4>
-                            <div class="row g-4">
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center p-3 bg-white rounded">
-                                        <img src="img/chatGPT.jpg" class="img-fluid rounded" alt="">
-                                        <div class="ms-3">
-                                            <a href="#" class="h5 mb-2">Lorem Ipsum is simply dummy text of the printing</a>
-                                            <p class="text-dark mt-3 mb-0 me-3"><i class="fa fa-clock"></i> 06 minute read</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6">
-                                    <div class="d-flex align-items-center p-3 bg-white rounded">
-                                        <img src="img/chatGPT-1.jpg" class="img-fluid rounded" alt="">
-                                        <div class="ms-3">
-                                            <a href="#" class="h5 mb-2">Lorem Ipsum is simply dummy text of the printing</a>
-                                            <p class="text-dark mt-3 mb-0 me-3"><i class="fa fa-clock"></i> 06 minute read</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        <?php get_template_part('template-parts/single/navigation');?>
                         <div class="bg-light rounded p-4">
                             <h4 class="mb-4"><?php _e('Comments', 'exclusive'); ?></h4>
                             <div class="p-4 bg-white rounded mb-4">
