@@ -9,7 +9,7 @@ use function FakerPress\get;
             <div class="container py-5">
                 <ol class="breadcrumb justify-content-start mb-4">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#">Pages</a></li>
+                    <li class="breadcrumb-item"><a href="#"><?php echo get_the_category_list(); ?></a></li>
                     <li class="breadcrumb-item active text-dark"><?php the_title();?></li>
                 </ol>
                 <div class="row g-4">
@@ -67,7 +67,7 @@ wp_reset_postdata();*/
                         <div class="d-flex justify-content-between">
                            <?php exclusive_postedOn(); ?>
                             <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> <?php  exclusive_display_post_views(); _e('Views, ', 'exclusive') ?></a>
-                            <a href="#" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment</a>
+                            <a href="#" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> <?php comments_number('0', '1', '%'); ?> Comment</a>
                             <?php exclusive_authorInfo();?>
                         </div>
                         <div class="my-4">
@@ -92,60 +92,9 @@ wp_reset_postdata();*/
                             <?php get_template_part('template-parts/single/author');?>
                         </div>
                         <?php get_template_part('template-parts/single/navigation');?>
-                        <div class="bg-light rounded p-4">
-                            <h4 class="mb-4"><?php _e('Comments', 'exclusive'); ?></h4>
-                            <div class="p-4 bg-white rounded mb-4">
-                                <div class="row g-4">
-                                    <div class="col-3">
-                                        <img src="img/footer-4.jpg" class="img-fluid rounded-circle w-100" alt="">
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="d-flex justify-content-between">
-                                            <h5>James Boreego</h5>
-                                            <a href="#" class="link-hover text-body fs-6"><i class="fas fa-long-arrow-alt-right me-1"></i> Reply</a>
-                                        </div>
-                                        <small class="text-body d-block mb-3"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                        <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="p-4 bg-white rounded mb-0">
-                                <div class="row g-4">
-                                    <div class="col-3">
-                                        <img src="img/footer-4.jpg" class="img-fluid rounded-circle w-100" alt="">
-                                    </div>
-                                    <div class="col-9">
-                                        <div class="d-flex justify-content-between">
-                                            <h5>James Boreego</h5>
-                                            <a href="#" class="link-hover text-body fs-6"><i class="fas fa-long-arrow-alt-right me-1"></i> Reply</a>
-                                        </div>
-                                        <small class="text-body d-block mb-3"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                        <p class="mb-0">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="bg-light rounded p-4 my-4">
-                            <h4 class="mb-4">Leave A Comment</h4>
-                            <form action="#">
-                                <div class="row g-4">
-                                    <div class="col-lg-6">
-                                        <input type="text" class="form-control py-3" placeholder="Full Name">
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <input type="email" class="form-control py-3" placeholder="Email Address">
-                                    </div>
-                                    <div class="col-12">
-                                        <textarea class="form-control" name="textarea" id="" cols="30" rows="7" placeholder="Write Your Comment Here"></textarea>
-                                    </div>
-                                    <div class="col-12">
-                                        <button class="form-control btn btn-primary py-3" type="button">Submit Now</button>
-                                    </div>
-                                </div>
-                            </form>
-                        </div>
+
+                        <?php if (comments_open()) {comments_template();}?>
+                        
                     </div>
                     <?php get_sidebar();?>
                 </div>

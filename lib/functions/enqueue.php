@@ -34,12 +34,18 @@ wp_register_script( 'exclusive_main',get_template_directory_uri().'/js/main.js',
 
 
 
+
+
 wp_enqueue_script( 'jquery' );
 wp_enqueue_script( 'bootstrap');
 wp_enqueue_script( 'easing');
 wp_enqueue_script( 'waypoints');
 wp_enqueue_script( 'owl');
+if (is_singular() && comments_open() && get_option( 'thread_comments' )){
+wp_enqueue_script( 'comment-reply');
+}
 wp_enqueue_script( 'exclusive_main');
+
 
 }
 add_action( 'wp_enqueue_scripts', 'exclusive_scripts' );
