@@ -22,6 +22,14 @@
  
     </head>
 
+
+
+    <?php if ( get_header_image() ) : ?>
+        <div id="custom-header-image">
+            <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
+        </div>
+    <?php endif; ?>
+
     <body <?php body_class();?>>
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'exclusive' ); ?></a>
 

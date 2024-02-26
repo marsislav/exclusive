@@ -9,7 +9,15 @@ use function FakerPress\get;
             <div class="container py-5">
                 <ol class="breadcrumb justify-content-start mb-4">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                    <li class="breadcrumb-item"><a href="#"><?php echo get_the_category_list(); ?></a></li>
+                    <?php
+$categories = get_the_category();
+if (!empty($categories)) {
+    $first_category = $categories[0]; // Get the first category
+    ?>
+    <li class="breadcrumb-item"><a href="<?php echo esc_url(get_category_link($first_category)); ?>"><?php echo esc_html($first_category->name); ?></a></li>
+    <?php
+}
+?>
                     <li class="breadcrumb-item active text-dark"><?php the_title();?></li>
                 </ol>
                 <div class="row g-4">
