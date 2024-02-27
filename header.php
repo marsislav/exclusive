@@ -24,13 +24,34 @@
 
 
 
-    <?php if ( get_header_image() ) : ?>
-        <div id="custom-header-image">
-            <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="">
-        </div>
-    <?php endif; ?>
+
 
     <body <?php body_class();?>>
+/*BGR IMAGE */
+    <style>
+        body {
+            <?php if ( get_background_color() ) : ?>
+                background-color: #<?php echo get_background_color(); ?>;
+            <?php endif; ?>
+            <?php if ( get_background_image() ) : ?>
+                background-image: url('<?php echo esc_url( get_background_image() ); ?>');
+                background-repeat: <?php echo esc_attr( get_theme_mod( 'background_repeat', 'repeat' ) ); ?>;
+                background-position: <?php echo esc_attr( get_theme_mod( 'background_position_x', 'left' ) ); ?> <?php echo esc_attr( get_theme_mod( 'background_position_y', 'top' ) ); ?>;
+                background-attachment: <?php echo esc_attr( get_theme_mod( 'background_attachment', 'scroll' ) ); ?>;
+                background-size: <?php echo esc_attr( get_theme_mod( 'background_size', 'auto' ) ); ?>;
+            <?php endif; ?>
+        }
+    </style>
+</head>
+<body <?php body_class(); ?>>
+        <?php wp_body_open(); ?>
+    <header id="masthead" class="site-header" role="banner">
+        <!-- Your header content goes here -->
+    </header>
+    <div id="content" class="site-content">
+
+
+    
     <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'exclusive' ); ?></a>
 
         <!-- Spinner Start -->
@@ -86,6 +107,8 @@ wp_reset_postdata();
                     </div>
                 </div>
             </div>
+
+            
             <div class="container-fluid bg-light">
                 <div class="container px-0">
                     <nav class="navbar navbar-light navbar-expand-xl">
@@ -168,97 +191,8 @@ wp_reset_postdata();
         <!-- Modal Search End -->
 
 <?php   display_last_post_in_random_categories();?>
-        <!-- Features Start 
-        <div class="container-fluid features mb-5">
-            <div class="container py-5">
-                <div class="row g-4"> 
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="row g-4 align-items-center features-item">
-
-                       
-                            <div class="col-4">
-                                <div class="rounded-circle position-relative">
-                                    <div class="overflow-hidden rounded-circle">
-                                        <img src="img/features-sports-1.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
-                                    </div>
-                                    <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="features-content d-flex flex-column">
-                                    <p class="text-uppercase mb-2">Sports</p>
-                                    <a href="#" class="h6">
-                                        Get the best speak market, news.
-                                    </a>
-                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="row g-4 align-items-center features-item">
-                            <div class="col-4">
-                                <div class="rounded-circle position-relative">
-                                    <div class="overflow-hidden rounded-circle">
-                                        <img src="img/features-technology.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
-                                    </div>
-                                    <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="features-content d-flex flex-column">
-                                    <p class="text-uppercase mb-2">Technology</p>
-                                    <a href="#" class="h6">
-                                        Get the best speak market, news.
-                                    </a>
-                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="row g-4 align-items-center features-item">
-                            <div class="col-4">
-                                <div class="rounded-circle position-relative">
-                                    <div class="overflow-hidden rounded-circle">
-                                        <img src="img/features-fashion.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
-                                    </div>
-                                    <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="features-content d-flex flex-column">
-                                    <p class="text-uppercase mb-2">Fashion</p>
-                                    <a href="#" class="h6">
-                                        Get the best speak market, news.
-                                    </a>
-                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-6 col-lg-6 col-xl-3">
-                        <div class="row g-4 align-items-center features-item">
-                            <div class="col-4">
-                                <div class="rounded-circle position-relative">
-                                    <div class="overflow-hidden rounded-circle">
-                                        <img src="img/features-life-style.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
-                                    </div>
-                                    <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
-                                </div>
-                            </div>
-                            <div class="col-8">
-                                <div class="features-content d-flex flex-column">
-                                    <p class="text-uppercase mb-2">Life Style</p>
-                                    <a href="#" class="h6">
-                                        Get the best speak market, news.
-                                    </a>
-                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> December 9, 2024</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+       <?php if ( get_header_image() ) : ?>
+        <div id="custom-header-image">
+            <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="" style="width:100%;">
         </div>
-        Features End -->
+    <?php endif; ?>
