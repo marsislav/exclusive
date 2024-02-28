@@ -11,7 +11,7 @@ function exclusive_sidebar_widgets() {
         'after_title' => '</h5>'
     ) );
 }
-/*
+
 $footer_layout = sanitize_text_field(get_theme_mod('exclusive_footer_layout', '3,3,3,3'));
 $footer_layout = preg_replace('/\s+/', '', $footer_layout);
 $columns = explode(',', $footer_layout);
@@ -33,6 +33,6 @@ foreach ($columns as $i => $column) {
         'before_title' => '<h5>',
         'after_title' => '</h5>'
     ) );
-}*/
+}
 
 add_action('widgets_init', 'exclusive_sidebar_widgets');

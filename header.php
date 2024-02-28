@@ -8,10 +8,8 @@
         <meta content="" name="keywords">
         <meta content="" name="description">
 
-        <!-- Google Web Fonts -->
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@100;600;800&display=swap" rel="stylesheet"> 
+        
+        
 
         <!-- Icon Font Stylesheet -->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
@@ -27,6 +25,8 @@
 
 
     <body <?php body_class();?>>
+    <?php wp_body_open();?>
+
 /*BGR IMAGE */
     <style>
         body {
@@ -75,7 +75,6 @@
                             </div>
                             <div class="overflow-hidden" style="width: 735px;">
                                 <div id="note" class="ps-2">
-                                    <img src="img/features-fashion.jpg" class="img-fluid rounded-circбоle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
                                     <a href="#"><p class="text-white mb-0 link-hover">
                                     <?php 
 $args = array(
@@ -89,7 +88,11 @@ $latest_post = new WP_Query($args);
 
 if ($latest_post->have_posts()) :
     while ($latest_post->have_posts()) : $latest_post->the_post(); ?>
-        
+          <?php if (has_post_thumbnail()) {?>
+    <div class="post-image-wrap">
+        <?php the_post_thumbnail( 'full', array( 'class' => 'img-fluid rounded-circбоle border border-3 border-primary me-2 small' ) );  ?>
+    </div>
+    <?php } ?>
             <?php the_title(); ?>
             
        
@@ -177,7 +180,7 @@ wp_reset_postdata();
             <div class="modal-dialog modal-fullscreen">
                 <div class="modal-content rounded-0">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><?php _e('Search by keyword', 'exclusive'); ?></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body d-flex align-items-center">

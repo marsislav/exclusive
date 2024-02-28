@@ -142,14 +142,14 @@ function exclusive_validate_footer_layout( $validity, $value) {
     }
     return $validity;
 }
-
+/*
 function exclusive_sanitize_footer_bg( $input ) {
     $valid = array('light', 'dark');
     if( in_array($input, $valid, true) ) {
         return $input;
     }
     return 'dark';
-}
+}*/
 
 function exclusive_sanitize_site_info( $input ) {
     $allowed = array('a' => array(

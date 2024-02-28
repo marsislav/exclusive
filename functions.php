@@ -1,3 +1,4 @@
+
 <?php 
 function display_last_ten_posts_in_current_category() {
     // Get the current post's categories
@@ -141,3 +142,45 @@ function mytheme_custom_background_setup() {
     add_theme_support( 'custom-background', $args );
 }
 add_action( 'after_setup_theme', 'mytheme_custom_background_setup' );
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function exclusive_sanitize_footer_bg( $input ) {
+    $valid = array('light', 'dark');
+    if( in_array($input, $valid, true) ) {
+        return $input;
+    }
+    return 'dark';
+}

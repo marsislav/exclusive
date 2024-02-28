@@ -187,31 +187,6 @@ wp_reset_postdata()
         <!-- Main Post Section End -->
 
 
-        <!-- Banner Start -->
-        <div class="container-fluid py-5 my-5" style="background: linear-gradient(rgba(202, 203, 185, 1), rgba(202, 203, 185, 1));">
-            <div class="container">
-                <div class="row g-4 align-items-center">
-                    <div class="col-lg-7">
-                        <h1 class="mb-4 text-primary">Newsers</h1>
-                        <h1 class="mb-4">Get Every Weekly Updates</h1>
-                        <p class="text-dark mb-4 pb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley
-                        </p>
-                        <div class="position-relative mx-auto">
-                            <input class="form-control w-100 py-3 rounded-pill" type="email" placeholder="Your Busines Email">
-                            <button type="submit" class="btn btn-primary py-3 px-5 position-absolute rounded-pill text-white h-100" style="top: 0; right: 0;">Subscribe Now</button>
-                        </div>
-                    </div>
-                    <div class="col-lg-5">
-                        <div class="rounded">
-                            <img src="img/banner-img.jpg" class="img-fluid rounded w-100 rounded" alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- Banner End -->
-
-
         <!-- Latest News Start -->
         <div class="container-fluid latest-news py-5">
             <div class="container py-5">
@@ -981,35 +956,6 @@ wp_reset_postdata()
                             <div class="row g-4">
                                 <div class="col-12">
                                     <div class="p-3 rounded border">
-                                        <h4 class="mb-4">Stay Connected</h4>
-                                        <div class="row g-4">
-                                            <div class="col-12">
-                                                <a href="#" class="w-100 rounded btn btn-primary d-flex align-items-center p-3 mb-2">
-                                                    <i class="fab fa-facebook-f btn btn-light btn-square rounded-circle me-3"></i>
-                                                    <span class="text-white">13,977 Fans</span>
-                                                </a>
-                                                <a href="#" class="w-100 rounded btn btn-danger d-flex align-items-center p-3 mb-2">
-                                                    <i class="fab fa-twitter btn btn-light btn-square rounded-circle me-3"></i>
-                                                    <span class="text-white">21,798 Follower</span>
-                                                </a>
-                                                <a href="#" class="w-100 rounded btn btn-warning d-flex align-items-center p-3 mb-2">
-                                                    <i class="fab fa-youtube btn btn-light btn-square rounded-circle me-3"></i>
-                                                    <span class="text-white">7,999 Subscriber</span>
-                                                </a>
-                                                <a href="#" class="w-100 rounded btn btn-dark d-flex align-items-center p-3 mb-2">
-                                                    <i class="fab fa-instagram btn btn-light btn-square rounded-circle me-3"></i>
-                                                    <span class="text-white">19,764 Follower</span>
-                                                </a>
-                                                <a href="#" class="w-100 rounded btn btn-secondary d-flex align-items-center p-3 mb-2">
-                                                    <i class="bi-cloud btn btn-light btn-square rounded-circle me-3"></i>
-                                                    <span class="text-white">31,999 Subscriber</span>
-                                                </a>
-                                                <a href="#" class="w-100 rounded btn btn-warning d-flex align-items-center p-3 mb-4">
-                                                    <i class="fab fa-dribbble btn btn-light btn-square rounded-circle me-3"></i>
-                                                    <span class="text-white">37,999 Subscriber</span>
-                                                </a>
-                                            </div>
-                                        </div>
                                         <h4 class="my-4">Popular News</h4>
                                         <div class="row g-4">
                                             <div class="col-12">
@@ -1145,16 +1091,6 @@ wp_reset_postdata()
                                                         </a>
                                                     </li>
                                                 </ul>
-                                            </div>
-                                            <div class="col-lg-12">
-                                                <div class="position-relative banner-2">
-                                                    <img src="img/banner-2.jpg" class="img-fluid w-100 rounded" alt="">
-                                                    <div class="text-center banner-content-2">
-                                                        <h6 class="mb-2">The Most Populer</h6>
-                                                        <p class="text-white mb-2">News & Magazine WP Theme</p>
-                                                        <a href="#" class="btn btn-primary text-white px-4">Shop Now</a>
-                                                    </div>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>

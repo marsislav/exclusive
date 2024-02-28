@@ -504,3 +504,8 @@ img.custom-logo {
   width: 100% !important;
   height: auto !important;
 }
+
+.small {
+  width: 30px;
+  height: 30px;
+}

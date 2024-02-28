@@ -1,7 +1,4 @@
 <?php
-
-use function FakerPress\get;
-
  get_header() ; ?>
 
         <!-- Single Product Start -->
@@ -58,6 +55,7 @@ if (!empty($categories)) {
                         <div class="my-4">
                             <?php the_content();?>
                         </div>
+                         
                         <?php if (has_tag()) {?>
                             <div class="tab-class">
                                 <div class="d-flex justify-content-between border-bottom mb-4">
@@ -65,34 +63,33 @@ if (!empty($categories)) {
                                         <li class="nav-item mb-3">
                                             <h5 class="mt-2 me-3 mb-0"><?php _e('Tags', 'exclusive') ?>:</h5>
                                         </li>
+                                       
                                         <li class="nav-item mb-3">
-                                            <a class="d-flex py-2 bg-light rounded-pill active me-2" data-bs-toggle="pill" href="#tab-1">
-                                                <span class="text-dark" style="width: 100px;">Sports</span>
-                                                <?php
-// Get all tags
-$tags = get_tags();
+                                            
+                                            <?php
+                                                // Get all tags
+                                                $tags = get_tags();
 
-if ($tags) {
-    // Loop through each tag
-    foreach ($tags as $tag) {
-        ?>
-        <span class="text-dark" style="width: 100px;">
-            <a href="<?php echo get_tag_link($tag->term_id); ?>"><?php echo $tag->name; ?></a>
-    </span>
-        <?php
-    }
-}
-?>
-
-
-
-                                            </a>
+                                                if ($tags) {
+                                                    // Loop through each tag
+                                                    foreach ($tags as $tag) {
+                                                        ?>
+                                                        <a class="d-flex py-2 bg-light rounded-pill active me-2" data-bs-toggle="pill" href="<?php echo get_tag_link($tag->term_id); ?>">
+                                                            <span class="text-dark" style="width: 100px;">
+                                                                <?php echo $tag->name; ?>
+                                                            </span>
+                                                        </a>
+                                                        <?php
+                                                    }
+                                                }
+                                                ?>
                                         </li>
                                     </ul>
                                 </div>
                         <?php } ?>
-
-                            <?php get_template_part('template-parts/single/author');?>
+                            <?php if (get_theme_mod('exclusive_display_author_info', true)){?>
+                                <?php get_template_part('template-parts/single/author');?>
+                            <?php }?> 
                         </div>
                         <?php get_template_part('template-parts/single/navigation');?>
 
@@ -106,7 +103,7 @@ if ($tags) {
 
         <?php }?>
         <?php } else {?>
-            <p>Няма публикации</p>
+            <p><?php _e('No posts found!', 'exclusive') ?></p> 
             <?php } ?>
         <!-- Single Product End -->
 <?php get_footer();?>
