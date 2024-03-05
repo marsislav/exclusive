@@ -119,9 +119,9 @@
                                         </div>
                                         <div class="col-lg-12">
                                             <div class="border-bottom my-3 pb-3">
-                                                <h4 class="mb-0">Trending Tags</h4>
+                                                <h4 class="mb-0"><?php _e('Trending Tags', 'exclusive');?></h4>
                                             </div>
-                            <?php display_popular_tags(); ?>           
+                                            <?php display_popular_tags(); ?>           
                         </div>
                                     </div>
                                 </div>

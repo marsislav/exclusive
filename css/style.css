@@ -418,6 +418,13 @@
 }
 /*** Banner Section End ***/
 
+/*** Main Menu ***/
+
+li.menu-item {
+  margin: 0 15px !important;
+}
+/*** MAin Menu End ***/
+
 /*** Footer Start ***/
 .footer button:hover {
   background: var(--bs-white) !important;

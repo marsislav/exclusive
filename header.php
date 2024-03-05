@@ -5,8 +5,7 @@
         <meta charset="<?php bloginfo('charset'); ?>">
         <?php wp_head(); ?>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="" name="keywords">
-        <meta content="" name="description">
+
 
         
         
@@ -75,7 +74,7 @@
                             </div>
                             <div class="overflow-hidden" style="width: 735px;">
                                 <div id="note" class="ps-2">
-                                    <a href="#"><p class="text-white mb-0 link-hover">
+                                    <p class="text-white mb-0 link-hover">
                                     <?php 
 $args = array(
     'post_type' => 'post',
@@ -89,12 +88,13 @@ $latest_post = new WP_Query($args);
 if ($latest_post->have_posts()) :
     while ($latest_post->have_posts()) : $latest_post->the_post(); ?>
           <?php if (has_post_thumbnail()) {?>
-    <div class="post-image-wrap">
-        <?php the_post_thumbnail( 'full', array( 'class' => 'img-fluid rounded-circбоle border border-3 border-primary me-2 small' ) );  ?>
-    </div>
+  
+        <?php the_post_thumbnail( 'full', array( 'class' => 'img-fluid rounded-circle border border-3 border-primary me-2 small' ) );  ?>
+   
     <?php } ?>
+            <a href="<?php the_permalink(); ?>">
             <?php the_title(); ?>
-            
+            </a>
        
     <?php endwhile;
 endif;
@@ -102,7 +102,7 @@ endif;
 wp_reset_postdata();
 ?>
       
-                                    </p></a>
+                                    </p>
                                 </div>
                             </div>
                         </div>
