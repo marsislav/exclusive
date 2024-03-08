@@ -158,12 +158,32 @@ function exclusive_sanitize_footer_bg( $input ) {
 
 
 
-function update_post_views_count() {
-    if (is_single()) {
-        $post_id = get_the_ID();
-        $views = get_post_meta($post_id, 'post_views_count', true);
-        $views = ($views) ? $views + 1 : 1;
-        update_post_meta($post_id, 'post_views_count', $views);
+
+function calculate_reading_time() {
+    // Get post content
+    $post_content = get_post_field( 'post_content', get_the_ID() );
+
+    // Count words
+    $word_count = str_word_count( strip_tags( $post_content ) );
+
+    // Estimate reading time (words per minute)
+    $words_per_minute = 100; // Adjust as needed
+    $reading_time = ceil( $word_count / $words_per_minute );
+
+    // Return reading time
+    return $reading_time;
+}
+
+function display_reading_time() {
+    // Get reading time
+    $reading_time = calculate_reading_time();
+
+    // Output reading time
+    if ($reading_time < 1) {
+        echo "Less than 1 minute read";
+    } elseif ($reading_time === 1) {
+        echo "Approx. 1 minute read";
+    } else {
+        echo "Approx. " . $reading_time . " minutes read";
     }
 }
-add_action('wp_head', 'update_post_views_count');

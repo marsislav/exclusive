@@ -52,3 +52,9 @@ wp_enqueue_script( 'exclusive_main');
 
 }
 add_action( 'wp_enqueue_scripts', 'exclusive_scripts' );
+
+
+function theme_add_editor_styles() {
+    add_editor_style( get_template_directory_uri().'/css/editor-style.css' );
+}
+add_action( 'admin_init', 'theme_add_editor_styles' );

@@ -1,6 +1,25 @@
 /*Helpers*/
+.wp-caption {
+  background: rgba(0, 0, 0, 0.3);
+}
 
-/* Text meant only for screen readers. */
+.bypostauthor,
+.wp-caption-text,
+.gallery-caption {
+  font-style: italic;
+}
+.alignright {
+  text-align: right;
+}
+
+.alignleft {
+  text-align: left;
+}
+
+.aligncenter {
+  text-align: center;
+}
+
 .screen-reader-text {
   border: 0;
   clip: rect(1px, 1px, 1px, 1px);

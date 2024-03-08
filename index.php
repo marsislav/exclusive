@@ -1,5 +1,4 @@
 <?php get_header();?>
-<h1>index</h1>
         <!-- Main Post Section Start -->
         <div class="container-fluid py-5">
             <div class="container py-5">
@@ -27,7 +26,9 @@ if ($latest_post->have_posts()) :
     </div>
     <?php } ?>
                             <div class="d-flex justify-content-center px-4 position-absolute flex-wrap" style="bottom: 10px; left: 0;">
-                                <a href="#" class="text-white me-3 link-hover"><i class="fa fa-clock"></i> 06 minute read</a>
+
+                            
+                                <a href="#" class="text-white me-3 link-hover"><i class="fa fa-clock"></i> <?php display_reading_time();?></a>
                                 <a href="#" class="text-white me-3 link-hover"><i class="fa fa-eye"></i> 3.5k Views</a>
                                 <a href="#" class="text-white me-3 link-hover"><i class="fa fa-comment-dots"></i> 05 Comment</a>
                                 <?php exclusive_authorInfo();?>
@@ -175,7 +176,7 @@ wp_reset_postdata()
 
         <div class="container-fluid latest-news py-5">
             <div class="container py-5">
-                <h2 class="mb-4">Latest News</h2>
+                <h2 class="mb-4"><?php _e('Latest News', 'exclusive');?></h2>
                 <div class="latest-news-carousel owl-carousel">
             
             <?php
@@ -652,7 +653,7 @@ wp_reset_postdata()
                             <div class="row g-4">
                                 <div class="col-12">
                                     <div class="p-3 rounded border">
-                                        <h4 class="my-4">Popular News</h4>
+                                        <h4 class="my-4">Popular News FIX</h4>
 
 
 

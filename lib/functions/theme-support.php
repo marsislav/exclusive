@@ -7,6 +7,8 @@ add_theme_support('post-thumbnails');
 add_theme_support('automatic-feed-links');
 add_theme_support('html5', array('search-form','comment-list', 'comment-form', 'gallery', 'caption', 'admin-bar'));
 add_theme_support('customize-selective-refresh-widgets');
+add_theme_support('responsive-embeds');
+
 add_theme_support('custom-logo', array (
     'height'=>200,
     'width'=>600,
