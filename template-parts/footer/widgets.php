@@ -12,8 +12,8 @@
 ?>
 <?php if($widgets_active) { ?>
 <div class="c-footer c-footer--<?php echo $footer_bg; ?>">
-    <div class="o-container">
-        <div class="o-row" style="display: flex;">
+    <div class="container">
+        <div class="row" style="display: flex;">
             <?php 
             // Count the total number of columns
             $total_columns = count($columns);
