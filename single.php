@@ -47,6 +47,7 @@ if (!empty($categories)) {
                             </div> <?php } ?>
                         </div>
                         <div class="d-flex justify-content-between">
+                        <i class="fa fa-clock"></i> <?php display_reading_time();?>
                            <?php exclusive_postedOn(); ?>
                             <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> <?php  exclusive_display_post_views(); _e(' Views', 'exclusive') ?></a>
                             <a href="#" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> <?php comments_number('0', '1', '%'); ?> Comment</a>

@@ -28,7 +28,7 @@ function display_last_ten_posts_in_current_category() {
                 $query->the_post();
                 echo '<li>';
                 // Display post title with link
-                echo '<a href="' . get_permalink() . '">' . get_the_title() . '</a>';
+                echo '<a href="' . get_permalink() . '">'.the_post_thumbnail( 'thumbnail', array( 'class' => 'small rounded-circle' ) ) . get_the_title() . '</a>';
                 echo '</li>';
             }
             echo '</ul>';
