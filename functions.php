@@ -73,6 +73,7 @@ require_once('lib/functions/customize.php');
 require_once('lib/functions/navigation.php');
 require_once('lib/functions/random-categories.php');
 require_once('lib/functions/walker.php');
+require_once('lib/functions/dynamic-meta.php');
 
 
 
@@ -147,72 +148,6 @@ add_action( 'after_setup_theme', 'mytheme_custom_background_setup' );
 
 
 
-//dYNAMIC HEADER
-
-
-// Function to dynamically generate meta keywords and description
-function custom_meta_tags() {
-    global $post;
-
-    $keywords = '';
-    $description = '';
-
-    if (is_singular()) {
-        // Get post tags and concatenate them for keywords
-        $post_tags = get_the_tags($post->ID);
-        if ($post_tags) {
-            foreach ($post_tags as $tag) {
-                $keywords .= $tag->name . ', ';
-            }
-        }
-
-        // Get post excerpt or content for description
-        $description = get_the_excerpt($post->ID);
-        if (empty($description)) {
-            $description = wp_strip_all_tags(get_the_content($post->ID));
-            $description = substr($description, 0, 160); // Limit to 160 characters
-        }
-    } else {
-        // For other pages, you can provide default keywords and description
-        $keywords = 'Esclusive, WordPress, Theme, Responsive, Blog';
-        $description = 'Wordpress theme for news agency ot just for personal blog';
-    }
-
-    // Output meta tags
-    echo '<meta name="keywords" content="' . esc_attr($keywords) . '">';
-    echo '<meta name="description" content="' . esc_attr($description) . '">';
-}
-
-// Hook into wp_head to output custom meta tags
-add_action('wp_head', 'custom_meta_tags');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 function exclusive_sanitize_footer_bg( $input ) {
     $valid = array('light', 'dark');
     if( in_array($input, $valid, true) ) {
@@ -220,3 +155,15 @@ function exclusive_sanitize_footer_bg( $input ) {
     }
     return 'dark';
 }
+
+
+
+function update_post_views_count() {
+    if (is_single()) {
+        $post_id = get_the_ID();
+        $views = get_post_meta($post_id, 'post_views_count', true);
+        $views = ($views) ? $views + 1 : 1;
+        update_post_meta($post_id, 'post_views_count', $views);
+    }
+}
+add_action('wp_head', 'update_post_views_count');

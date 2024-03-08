@@ -99,6 +99,7 @@ if (!empty($categories)) {
                     <?php get_sidebar();?>
                 </div>
             </div>
+             
         </div>
 
         <?php }?>

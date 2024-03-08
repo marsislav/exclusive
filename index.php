@@ -47,25 +47,7 @@ wp_reset_postdata()
 ?>
 
 
-                        <div class="bg-light p-4 rounded">
-                            <div class="news-2">
-                                <h3 class="mb-4">Top Story</h3>
-                            </div>
-                            <div class="row g-4 align-items-center">
-                                <div class="col-md-6">
-                                    <div class="rounded overflow-hidden">
-                                        <img src="img/news-2.jpg" class="img-fluid rounded img-zoomin w-100" alt="">
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex flex-column">
-                                        <a href="#" class="h3">Stoneman Clandestine Ukrainian claims successes against Russian.</a>
-                                        <p class="mb-0 fs-5"><i class="fa fa-clock"> 06 minute read</i> </p>
-                                        <p class="mb-0 fs-5"><i class="fa fa-eye"> 3.5k Views</i></p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        
                     </div>
                     <div class="col-lg-5 col-xl-4">
                        <div class="bg-light rounded p-4 pt-0">
@@ -188,84 +170,52 @@ wp_reset_postdata()
 
 
         <!-- Latest News Start -->
+        
+       
+
         <div class="container-fluid latest-news py-5">
             <div class="container py-5">
                 <h2 class="mb-4">Latest News</h2>
                 <div class="latest-news-carousel owl-carousel">
-                    <div class="latest-news-item">
-                        <div class="bg-light rounded">
-                            <div class="rounded-top overflow-hidden">
-                                <img src="img/news-7.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                            </div>
-                            <div class="d-flex flex-column p-4">
-                                <a href="#" class="h4">Lorem Ipsum is simply dummy text of...</a>
-                                <div class="d-flex justify-content-between">
-                                    <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                </div>
-                            </div>
-                        </div>
+            
+            <?php
+            $args = array(
+                'post_type' => 'post',
+                'posts_per_page' => 20,
+                'order' => 'DESC',
+                'orderby' => 'date'
+            );
+
+            $query = new WP_Query($args);
+
+            if ($query->have_posts()) :
+                while ($query->have_posts()) : $query->the_post();
+            ?>
+            <div class="latest-news-item">
+                <div class="bg-light rounded">
+                    <div class="rounded-top overflow-hidden">
+                        <?php if (has_post_thumbnail()) : ?>
+                            <img src="<?php the_post_thumbnail_url('medium'); ?>" class="img-zoomin img-fluid rounded-top w-100" alt="">
+                        <?php endif; ?>
                     </div>
-                    <div class="latest-news-item">
-                        <div class="bg-light rounded">
-                            <div class="rounded-top overflow-hidden">
-                                <img src="img/news-6.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                            </div>
-                            <div class="d-flex flex-column p-4">
-                                <a href="#" class="h4">Lorem Ipsum is simply dummy text of...</a>
-                                <div class="d-flex justify-content-between">
-                                    <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="latest-news-item">
-                        <div class="bg-light rounded">
-                            <div class="rounded-top overflow-hidden">
-                                <img src="img/news-3.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                            </div>
-                            <div class="d-flex flex-column p-4">
-                                <a href="#" class="h4">Lorem Ipsum is simply dummy text of...</a>
-                                <div class="d-flex justify-content-between">
-                                    <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="latest-news-item">
-                        <div class="bg-light rounded">
-                            <div class="rounded-top overflow-hidden">
-                                <img src="img/news-4.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                            </div>
-                            <div class="d-flex flex-column p-4">
-                                <a href="#" class="h4">Lorem Ipsum is simply dummy text of...</a>
-                                <div class="d-flex justify-content-between">
-                                    <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="latest-news-item">
-                        <div class="bg-light rounded">
-                            <div class="rounded-top overflow-hidden">
-                                <img src="img/news-5.jpg" class="img-zoomin img-fluid rounded-top w-100" alt="">
-                            </div>
-                            <div class="d-flex flex-column p-4">
-                                <a href="#" class="h4 ">Lorem Ipsum is simply dummy text of...</a>
-                                <div class="d-flex justify-content-between">
-                                    <a href="#" class="small text-body link-hover">by Willum Skeem</a>
-                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                </div>
-                            </div>
+                    <div class="d-flex flex-column p-4">
+                        <a href="<?php the_permalink(); ?>" class="h4"><?php the_title(); ?></a>
+                        <div class="d-flex justify-content-between">
+                            <a href="<?php echo get_author_posts_url(get_the_author_meta('ID')); ?>" class="small text-body link-hover">by <?php the_author(); ?></a>
+                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> <?php the_time('M j, Y'); ?></small>
                         </div>
                     </div>
                 </div>
             </div>
+            <?php endwhile;
+            endif;
+            wp_reset_postdata(); ?>
+            
         </div>
-        <!-- Latest News End -->
+
+         <!-- Latest News End -->
+    </div>
+</div>
 
 
         <!-- Most Populer News Start -->
@@ -696,47 +646,17 @@ wp_reset_postdata()
                                     </div>
                                 </div>
                             </div>
-                            <div class="mt-5 lifestyle">
-                                <div class="border-bottom mb-4">
-                                    <h1 class="mb-4">Life Style</h1>
-                                </div>
-                                <div class="row g-4">
-                                    <div class="col-lg-6">
-                                        <div class="lifestyle-item rounded">
-                                            <img src="img/lifestyle-1.jpg" class="img-fluid w-100 rounded" alt="">
-                                            <div class="lifestyle-content">
-                                               <div class="mt-auto">
-                                                    <a href="#" class="h4 text-white link-hover">There are many variations of passages of Lorem Ipsum available,</a>
-                                                    <div class="d-flex justify-content-between mt-4">
-                                                        <a href="#" class="small text-white link-hover">By Willium Smith</a>
-                                                        <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                                    </div>
-                                               </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-6">
-                                        <div class="lifestyle-item rounded">
-                                            <img src="img/lifestyle-2.jpg" class="img-fluid w-100 rounded" alt="">
-                                            <div class="lifestyle-content">
-                                               <div class="mt-auto">
-                                                    <a href="#" class="h4 text-white link-hover">There are many variations of passages of Lorem Ipsum available,</a>
-                                                    <div class="d-flex justify-content-between mt-4">
-                                                        <a href="#" class="small text-white link-hover">By Willium Smith</a>
-                                                        <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                                    </div>
-                                               </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                            
                         </div>
                         <div class="col-lg-4 col-xl-3">
                             <div class="row g-4">
                                 <div class="col-12">
                                     <div class="p-3 rounded border">
                                         <h4 class="my-4">Popular News</h4>
+
+
+
+                                        
                                         <div class="row g-4">
                                             <div class="col-12">
                                                 <div class="row g-4 align-items-center features-item">
