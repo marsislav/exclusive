@@ -5,23 +5,8 @@
         <meta charset="<?php bloginfo('charset'); ?>">
         <?php wp_head(); ?>
         <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-
-        
-        
-
         <!-- Icon Font Stylesheet -->
-        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"/>
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-
-
- 
     </head>
-
-
-
-
 
     <body <?php body_class();?>>
     <?php wp_body_open();?>
@@ -194,8 +179,3 @@ wp_reset_postdata();
         <!-- Modal Search End -->
 
 <?php   display_last_post_in_random_categories();?>
-       <?php if ( get_header_image() ) : ?>
-        <div id="custom-header-image">
-            <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>" alt="" style="width:100%;">
-        </div>
-    <?php endif; ?>

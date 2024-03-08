@@ -5,7 +5,7 @@
         <div id="post-<?php the_ID(); ?>" <?php post_class("container-fluid py-5"); ?>>
             <div class="container py-5">
                 <ol class="breadcrumb justify-content-start mb-4">
-                    <li class="breadcrumb-item"><a href="#">Home</a></li>
+                    <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/')); ?>"><?php _e('Home', 'exclusive'); ?></a></li>
                     <?php
 $categories = get_the_category();
 if (!empty($categories)) {

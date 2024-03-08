@@ -37,19 +37,14 @@ function display_last_post_in_random_categories() {
                             <div class="row g-4 align-items-center features-item">';
 
             // Display category name and total post count
-            $output .= '<h2 class="text-uppercase mb-3">' . $category->name.'</h2>';
+
+            
+            $output .= '<h2 class="text-uppercase mb-3"><span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white " style="top: 10%; right: -10px;">' . $category_post_count . '</span>' . $category->name . '</h2>';
 
             // Display the last post title
             while ($query->have_posts()) {
                 $query->the_post();
-                $output .= '<div class="col-4">
-                                <div class="rounded-circle position-relative">
-                                    <div class="overflow-hidden rounded-circle">
-                                        <img src="' . get_template_directory_uri() . '/img/' . $category->slug . '.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
-                                    </div>
-                                    <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">' . $category_post_count . '</span>
-                                </div>
-                            </div>
+                $output .= '
                             <div class="col-8">
                                 <div class="features-content d-flex flex-column">
                                     <a href="' . get_permalink() . '" class="h6">' . get_the_title() . '</a>

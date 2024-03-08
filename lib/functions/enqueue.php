@@ -4,11 +4,14 @@
 wp_register_style( 'animate', get_template_directory_uri().'/lib/animate/animate.min.css'); 
 wp_enqueue_style( 'animate' );
 
-
 wp_register_style( 'owl', get_template_directory_uri().'/lib/owlcarousel/assets/owl.carousel.min.css'); 
 wp_enqueue_style( 'owl' );	
 
+wp_register_style( 'font-awesome', get_template_directory_uri().'/css/font-awesome.css'); 
+wp_enqueue_style( 'font-awesome' );	
 
+wp_register_style( 'bootstrap-icons', get_template_directory_uri().'/css/bootstrap-icons.css'); 
+wp_enqueue_style( 'bootstrap-icons' );	
 
 wp_register_style( 'bootstrap', get_template_directory_uri().'/css/bootstrap.min.css'); 
 wp_enqueue_style( 'bootstrap' );	

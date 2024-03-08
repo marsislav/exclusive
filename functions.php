@@ -23,7 +23,7 @@ function display_last_ten_posts_in_current_category() {
 
         // Check if there are any posts
         if ($query->have_posts()) {
-            echo '<ul>';
+            echo '<ul class="last-ten-posts">';
             while ($query->have_posts()) {
                 $query->the_post();
                 echo '<li>';
