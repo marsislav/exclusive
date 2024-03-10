@@ -7,32 +7,30 @@ wp_enqueue_style( 'animate' );
 wp_register_style( 'owl', get_template_directory_uri().'/lib/owlcarousel/assets/owl.carousel.min.css'); 
 wp_enqueue_style( 'owl' );	
 
-wp_register_style( 'font-awesome', get_template_directory_uri().'/css/font-awesome.css'); 
+wp_register_style( 'font-awesome', get_template_directory_uri().'/lib/assets/css/font-awesome.css'); 
 wp_enqueue_style( 'font-awesome' );	
 
-wp_register_style( 'bootstrap-icons', get_template_directory_uri().'/css/bootstrap-icons.css'); 
+wp_register_style( 'bootstrap-icons', get_template_directory_uri().'/lib/assets/css/bootstrap-icons.css'); 
 wp_enqueue_style( 'bootstrap-icons' );	
 
-wp_register_style( 'bootstrap', get_template_directory_uri().'/css/bootstrap.min.css'); 
+wp_register_style( 'bootstrap', get_template_directory_uri().'/lib/assets/css/bootstrap.min.css'); 
 wp_enqueue_style( 'bootstrap' );	
 
-wp_register_style( 'exclusive_style', get_template_directory_uri().'/css/style.css'); 
+wp_register_style( 'exclusive_style', get_template_directory_uri().'/lib/assets/css/style.css'); 
 wp_enqueue_style( 'exclusive_style' );
-
-
 
 
 
 //Scripts
 
-wp_register_script( 'bootstrap',get_template_directory_uri().'/js/bootstrap.bundle.min.js', array(), false, true );
+wp_register_script( 'bootstrap',get_template_directory_uri().'/lib/assets/js/bootstrap.bundle.min.js', array(), false, true );
 wp_register_script( 'easing',get_template_directory_uri().'/lib/easing/easing.min.js', array(), false, true );
 wp_register_script( 'waypoints',get_template_directory_uri().'/lib/waypoints/waypoints.min.js', array(), false, true );
 
 wp_register_script( 'owl',get_template_directory_uri().'/lib/owlcarousel/owl.carousel.min.js', array(), false, true );
 //wp_register_script( 'exclusive_customizer',get_template_directory_uri().'/js/customize-preview.js', array(), false, true );
 
-wp_register_script( 'exclusive_main',get_template_directory_uri().'/js/main.js', array(), false, true );
+wp_register_script( 'exclusive_main',get_template_directory_uri().'/lib/assets/js/main.js', array(), false, true );
 
 
 

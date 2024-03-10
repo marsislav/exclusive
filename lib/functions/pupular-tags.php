@@ -18,6 +18,6 @@ function display_popular_tags() {
         }
         echo '</ul>';
     } else {
-        echo '<p>No tags found.</p>';
+        echo '<p>' . esc_html__('No tags found.', 'exclusive') . '</p>';
     }
 }

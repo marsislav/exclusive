@@ -20,12 +20,11 @@
             </div>
             <div class="col-9">
                 <?php if ($author_website) { ?>
-                <a href="<?php echo esc_url($author_website);?>" target="_blank"><h3><?php echo $author_display; ?></h3></a>
+                    <a href="<?php echo esc_url($author_website);?>" target="_blank"><h3><?php echo $author_display; ?></h3></a>
                 <?php } else { ?> <h3><?php echo $author_display; ?></h3> <?php }?>
                     <div class="author_posts">
                         <a href="<?php echo esc_url($author_posts_url);?>"><?php printf(esc_html(_n('%s post', '%s posts', $author_posts, 'exclusive')), number_format_i18n($author_posts));?></a>
                     </div>
-
                 <p class="mb-0"><?php echo esc_html( $author_description);?>
                 </p>
             </div>

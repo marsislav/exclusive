@@ -64,7 +64,10 @@ function display_last_post_in_random_categories() {
             // Restore original post data
             wp_reset_postdata();
         } else {
-            $output .= 'No posts found in category ' . $category->name;
+            $output .= sprintf(
+                esc_html__('No posts found in category %s', 'exclusive'),
+                $category->name
+            );
         }
     }
 

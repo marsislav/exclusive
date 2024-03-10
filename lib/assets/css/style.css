@@ -317,11 +317,10 @@ input.form-control.p-3 {
 /*** Features Start ***/
 .features {
   width: 100%;
-  background: linear-gradient(rgba(26, 125, 255, 0.5), rgba(255, 255, 255, 0.3)),
-    url(../img/features-background.jpg);
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
+  background: linear-gradient(
+    rgba(26, 125, 255, 0.5),
+    rgba(255, 255, 255, 0.3)
+  );
 }
 /*** Features End ***/
 
@@ -590,8 +589,6 @@ li.menu-item {
   color: #2b2b2b;
 }
 /*** Footer End ***/
-
-/*FIX IT!!!!!!!!!!!!!!!!!!!!!*/
 
 img.custom-logo {
   width: 150px !important;

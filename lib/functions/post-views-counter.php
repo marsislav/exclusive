@@ -1,7 +1,6 @@
-<?php 
-//Post views counter
+<?php // Post views counter
 function exclusive_increment_post_views() {
-    if (is_single()) {
+    if (is_single() && !is_admin()) {
         global $post;
         $views = get_post_meta($post->ID, 'post_views', true);
         $views = $views ? $views : 0;
@@ -11,13 +10,12 @@ function exclusive_increment_post_views() {
 }
 
 // Hook into WordPress
-add_action('wp_head', 'exclusive_increment_post_views');
-
+add_action('template_redirect', 'exclusive_increment_post_views');
 
 // Function to display post views count
 function exclusive_display_post_views() {
     global $post;
     $views = get_post_meta($post->ID, 'post_views', true);
     $views = $views ? $views : 0;
-    echo $views;
+    return $views;
 }
