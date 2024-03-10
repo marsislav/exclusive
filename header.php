@@ -11,21 +11,14 @@
     <body <?php body_class();?>>
     <?php wp_body_open();?>
 
-/*BGR IMAGE */
-    <style>
-        body {
-            <?php if ( get_background_color() ) : ?>
-                background-color: #<?php echo get_background_color(); ?>;
-            <?php endif; ?>
-            <?php if ( get_background_image() ) : ?>
-                background-image: url('<?php echo esc_url( get_background_image() ); ?>');
-                background-repeat: <?php echo esc_attr( get_theme_mod( 'background_repeat', 'repeat' ) ); ?>;
-                background-position: <?php echo esc_attr( get_theme_mod( 'background_position_x', 'left' ) ); ?> <?php echo esc_attr( get_theme_mod( 'background_position_y', 'top' ) ); ?>;
-                background-attachment: <?php echo esc_attr( get_theme_mod( 'background_attachment', 'scroll' ) ); ?>;
-                background-size: <?php echo esc_attr( get_theme_mod( 'background_size', 'auto' ) ); ?>;
-            <?php endif; ?>
-        }
-    </style>
+<?php
+/*If is header background */
+if ( get_header_image() ) : ?>
+    <a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home">
+       <img src="<?php header_image(); ?>" width="<?php echo esc_attr( get_custom_header()->width ); ?>" height="<?php echo esc_attr( get_custom_header()->height ); ?>"  class="header-image">
+    </a>
+ <?php endif; ?>
+
 </head>
 <body <?php body_class(); ?>>
         <?php wp_body_open(); ?>

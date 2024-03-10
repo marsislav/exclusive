@@ -1,4 +1,3 @@
-
 <?php
 function display_last_post_in_random_categories() {
     // Get random categories
@@ -7,8 +6,15 @@ function display_last_post_in_random_categories() {
         'number' => 4
     ));
 
+
+
+
+
     // Start the features section
     $output = '<!-- Features Start -->
+
+
+
         <div class="container-fluid features mb-5">
             <div class="container py-5">
                 <div class="row g-4">';
@@ -20,8 +26,7 @@ function display_last_post_in_random_categories() {
             'posts_per_page' => 1,
             'post_type' => 'post',
             'category__in' => array($category->term_id),
-            'orderby' => 'date',
-            'order' => 'DESC'
+            'orderby' => 'rand', // Order randomly
         );
 
         // Perform the query

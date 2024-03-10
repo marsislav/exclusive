@@ -50,16 +50,6 @@ function exclusive_customize_register( $wp_customize ) {
         'description' => esc_html__( 'You can change general options from here.', 'exclusive' )
     ));
 
-    $wp_customize->add_setting('exclusive_accent_colour', array(
-        'default' => '#20ddae',
-        'transport' => 'postMessage',
-        'sanitize_callback' => 'sanitize_hex_color'
-    ));
-
-    $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'exclusive_accent_colour', array(
-        'label' => __( 'Accent Color', 'exclusive' ),
-        'section' => 'exclusive_general_options',
-    )));
 
     $wp_customize->add_setting( 'exclusive_portfolio_slug', array(
 		'default'           => 'portfolio',

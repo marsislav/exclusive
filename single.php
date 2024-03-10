@@ -49,8 +49,20 @@ if (!empty($categories)) {
                         <div class="d-flex justify-content-between">
                         <i class="fa fa-clock"></i> <?php display_reading_time();?>
                            <?php exclusive_postedOn(); ?>
-                            <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> <?php  exclusive_display_post_views(); _e(' Views', 'exclusive') ?></a>
-                            <a href="#" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> <?php comments_number('0', '1', '%'); ?> Comment</a>
+                            <i class="fa fa-eye"></i> <?php  exclusive_display_post_views(); _e(' Views', 'exclusive') ?>
+                            <a href="#comments" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 
+                                <?php 
+                                    printf(
+                                        _n(
+                                            '%s Comment',
+                                            '%s Comments',
+                                            get_comments_number(),
+                                            'exclusive'
+                                        ),
+                                        number_format_i18n(get_comments_number())
+                                    ); 
+                                ?>
+                            </a>
                             <?php exclusive_authorInfo();?>
                         </div>
                         <div class="my-4">
@@ -58,14 +70,14 @@ if (!empty($categories)) {
                         </div>
                          
                         <?php if (has_tag()) {?>
-                            <div class="tab-class">
+                            <div class="tab-class ">
                                 <div class="d-flex justify-content-between border-bottom mb-4">
-                                    <ul class="nav nav-pills d-inline-flex text-center">
-                                        <li class="nav-item mb-3">
+                                    <ul class="nav-pills d-inline-flex text-center">
+                                        <li class="mb-3 ">
                                             <h5 class="mt-2 me-3 mb-0"><?php _e('Tags', 'exclusive') ?>:</h5>
                                         </li>
                                        
-                                        <li class="nav-item mb-3">
+                                        
                                             
                                             <?php
                                                 // Get all tags
@@ -74,24 +86,25 @@ if (!empty($categories)) {
                                                 if ($tags) {
                                                     // Loop through each tag
                                                     foreach ($tags as $tag) {
-                                                        ?>
+                                                        ?><li class="nav-item mb-3">
                                                         <a class="d-flex py-2 bg-light rounded-pill active me-2" data-bs-toggle="pill" href="<?php echo get_tag_link($tag->term_id); ?>">
                                                             <span class="text-dark" style="width: 100px;">
                                                                 <?php echo $tag->name; ?>
                                                             </span>
-                                                        </a>
+                                                        </a></li>
                                                         <?php
                                                     }
                                                 }
                                                 ?>
-                                        </li>
+                                        
                                     </ul>
                                 </div>
+                                            </div>
                         <?php } ?>
                             <?php if (get_theme_mod('exclusive_display_author_info', true)){?>
                                 <?php get_template_part('template-parts/single/author');?>
                             <?php }?> 
-                        </div>
+                         
                         <?php get_template_part('template-parts/single/navigation');?>
 
                         <?php if (comments_open()) {comments_template();}?>

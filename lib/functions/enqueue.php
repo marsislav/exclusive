@@ -30,7 +30,7 @@ wp_register_script( 'easing',get_template_directory_uri().'/lib/easing/easing.mi
 wp_register_script( 'waypoints',get_template_directory_uri().'/lib/waypoints/waypoints.min.js', array(), false, true );
 
 wp_register_script( 'owl',get_template_directory_uri().'/lib/owlcarousel/owl.carousel.min.js', array(), false, true );
-wp_register_script( 'exclusive_customizer',get_template_directory_uri().'/js/customize-preview.js', array(), false, true );
+//wp_register_script( 'exclusive_customizer',get_template_directory_uri().'/js/customize-preview.js', array(), false, true );
 
 wp_register_script( 'exclusive_main',get_template_directory_uri().'/js/main.js', array(), false, true );
 

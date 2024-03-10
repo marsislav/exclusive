@@ -276,14 +276,41 @@
   opacity: 1;
 }
 
+.header-image {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
 @media (min-width: 1200px) {
   .navbar .navbar-collapse .border-top {
     border-top: none !important;
   }
 }
 
+@media (max-width: 1199px) {
+  .navbar .dropdown-menu {
+    display: block;
+  }
+  .navbar .dropdown-menu li:before {
+    content: "\21E2";
+    font-weight: bold;
+    margin-right: 10px;
+  }
+}
+
 #searchModal .modal-content {
   background: rgba(255, 255, 255, 0.8);
+}
+
+button#search-icon-1 {
+  border: 0;
+  background: transparent;
+}
+
+input.form-control.p-3 {
+  width: 67vw;
 }
 /*** Navbar End ***/
 
@@ -359,8 +386,18 @@
 /***Categories list***/
 
 ul.category-list,
+ul.post-categories,
 ul.last-ten-posts {
   padding: 0;
+}
+
+ul.post-categories li a {
+  color: white;
+}
+
+ul.post-categories li,
+ul.nav-pills li {
+  list-style: none;
 }
 
 ul.category-list li,
@@ -375,6 +412,7 @@ ul.last-ten-posts li {
   border: 2px solid #fff;
   padding: 10px;
   color: #fff;
+  margin-right: 8px;
 }
 
 /***End of categories list***/
@@ -568,4 +606,13 @@ img.custom-logo {
 .small {
   width: 30px;
   height: 30px;
+}
+
+.xs-small {
+  width: 37px;
+  height: 37px;
+}
+
+.last-ten-posts a {
+  margin-left: 8px;
 }
