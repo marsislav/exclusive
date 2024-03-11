@@ -1,6 +1,6 @@
 <?php
-    $footer_bg = exclusive_sanitize_footer_bg(get_theme_mod( 'exclusive_footer_bg', 'dark' ));
-    $site_info = get_theme_mod('exclusive_site_info', '');
+    $footer_bg = mexclusive_sanitize_footer_bg(get_theme_mod( 'mexclusive_footer_bg', 'dark' ));
+    $site_info = get_theme_mod('mexclusive_site_info', '');
 ?>
 <?php if($site_info) { ?>
 <div class="c-site-info c-site-info--<?php echo $footer_bg; ?>">

@@ -5,7 +5,7 @@
 <div id="post-<?php the_ID(); ?>" <?php post_class("container-fluid py-5"); ?>>
     <div class="container py-5">
         <ol class="breadcrumb justify-content-start mb-4">
-            <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/')); ?>"><?php _e('Home', 'exclusive'); ?></a></li>
+            <li class="breadcrumb-item"><a href="<?php echo esc_url(home_url('/')); ?>"><?php _e('Home', 'mexclusive'); ?></a></li>
             <?php
                 $categories = get_the_category();
                 if (!empty($categories)) {
@@ -39,12 +39,12 @@
                 </div>
                 <div class="d-flex justify-content-between">
                     <i class="fa fa-clock"></i> <?php display_reading_time();?>
-                    <?php exclusive_postedOn(); ?>
+                    <?php mexclusive_postedOn(); ?>
                     <i class="fa fa-eye"></i> 
                     <?php
-                        $views = exclusive_display_post_views();
+                        $views = mexclusive_display_post_views();
                         printf(
-                            _n('%d View', '%d Views', $views, 'exclusive'),
+                            _n('%d View', '%d Views', $views, 'mexclusive'),
                             $views );
                     ?>
                     <a href="#comments" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 
@@ -54,26 +54,26 @@
                                     '%s Comment',
                                     '%s Comments',
                                     get_comments_number(),
-                                    'exclusive'
+                                    'mexclusive'
                                 ),
                                 number_format_i18n(get_comments_number())
                             ); 
                         ?>
                     </a>
-                    <?php exclusive_authorInfo();?>
+                    <?php mexclusive_authorInfo();?>
                 </div>
                 <div class="my-4">
                     
                     <?php the_content();?>
                     <div class="pagination-container">
                     <?php wp_link_pages( array(
-                        'before'      => '<div class="pagination"><span class="page-links-title">' . __( 'Pages:', 'exclusive' ) . '</span>',
+                        'before'      => '<div class="pagination"><span class="page-links-title">' . __( 'Pages:', 'mexclusive' ) . '</span>',
                         'after'       => '</div>',
                         'link_before' => '<span class="page-number">',
                         'link_after'  => '</span>',
                         'next_or_number' => 'number',
-                        'nextpagelink' => __( 'Next page', 'exclusive' ),
-                        'previouspagelink' => __( 'Previous page', 'exclusive' ),
+                        'nextpagelink' => __( 'Next page', 'mexclusive' ),
+                        'previouspagelink' => __( 'Previous page', 'mexclusive' ),
                     ) );?>
                     </div>
                 </div>
@@ -84,7 +84,7 @@
                     <div class="d-flex justify-content-between border-bottom mb-4">
                         <ul class="nav-pills d-inline-flex text-center">
                             <li class="mb-3 ">
-                                <h5 class="mt-2 me-3 mb-0"><?php _e('Tags', 'exclusive') ?>:</h5>
+                                <h5 class="mt-2 me-3 mb-0"><?php _e('Tags', 'mexclusive') ?>:</h5>
                             </li>                  
                             <?php
 // Get all tags
@@ -105,7 +105,7 @@ if ($tags) {
                     </div>
                 </div>
                         <?php } ?>
-                            <?php if (get_theme_mod('exclusive_display_author_info', true)){?>
+                            <?php if (get_theme_mod('mexclusive_display_author_info', true)){?>
                                 <?php get_template_part('template-parts/single/author');?>
                             <?php }?> 
                          
@@ -123,7 +123,7 @@ if ($tags) {
 
         <?php }?>
         <?php } else {?>
-            <p><?php _e('No posts found!', 'exclusive') ?></p> 
+            <p><?php _e('No posts found!', 'mexclusive') ?></p> 
             <?php } ?>
         <!-- Single Product End -->
 <?php get_footer();?>

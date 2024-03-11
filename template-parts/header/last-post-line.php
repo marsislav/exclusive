@@ -5,7 +5,7 @@
                                 <i class="fas fa-bolt text-white"></i>
                             </span>
                             <div class="pe-2 me-3 border-end border-white d-flex align-items-center">
-                                <p class="mb-0 text-white fs-6 fw-normal"><?php _e('New', 'exclusive');?></p>
+                                <p class="mb-0 text-white fs-6 fw-normal"><?php _e('New', 'mexclusive');?></p>
                             </div>
                             <div class="overflow-hidden" style="width: 735px;">
                                 <div id="note" class="ps-2">
@@ -43,7 +43,7 @@
                         <div class="top-link flex-lg-wrap">
                         <?php
                         $current_day = date_i18n(get_option('date_format'));
-                        echo esc_html__('Today is: ', 'exclusive') . $current_day;
+                        echo esc_html__('Today is: ', 'mexclusive') . $current_day;
                         ?>
                         </div>
                     </div>

@@ -2,7 +2,7 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-12">
-            <h1><?php printf(esc_html__('Search results for: %s', 'exclusive'), get_search_query());?> </h1>
+            <h1><?php printf(esc_html__('Search results for: %s', 'mexclusive'), get_search_query());?> </h1>
         </div>
     </div>
     
@@ -33,12 +33,12 @@
                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                     <div class="d-flex justify-content-between">
                     <i class="fa fa-clock"></i> <?php display_reading_time();?>
-                    <?php exclusive_postedOn(); ?>
+                    <?php mexclusive_postedOn(); ?>
                     <i class="fa fa-eye"></i> 
                     <?php
-                        $views = exclusive_display_post_views();
+                        $views = mexclusive_display_post_views();
                         printf(
-                            _n('%d View', '%d Views', $views, 'exclusive'),
+                            _n('%d View', '%d Views', $views, 'mexclusive'),
                             $views );
                     ?>
                     <a href="#comments" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 
@@ -48,13 +48,13 @@
                                     '%s Comment',
                                     '%s Comments',
                                     get_comments_number(),
-                                    'exclusive'
+                                    'mexclusive'
                                 ),
                                 number_format_i18n(get_comments_number())
                             ); 
                         ?>
                     </a>
-                    <?php exclusive_authorInfo();?>
+                    <?php mexclusive_authorInfo();?>
                 </div>
                     <div><?php the_excerpt(); ?></div>
                 </div>
@@ -72,7 +72,7 @@
     <?php else : ?>
         <div class="row py-5">
             <div class="col-12">
-                 <p><?php esc_html_e('Sorry, no results were found.', 'exclusive'); ?></p>
+                 <p><?php esc_html_e('Sorry, no results were found.', 'mexclusive'); ?></p>
             </div>
         </div>
        

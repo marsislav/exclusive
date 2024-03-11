@@ -2,7 +2,7 @@
         
 <div class="container-fluid latest-news py-5">
             <div class="container py-5">
-                <h2 class="mb-4"><?php _e('Latest News', 'exclusive');?></h2>
+                <h2 class="mb-4"><?php _e('Latest News', 'mexclusive');?></h2>
                     <div class="latest-news-carousel owl-carousel">
                         <?php
                         $args = array(
@@ -33,7 +33,7 @@
                                         if (!empty($categories)) {
                                             $first_category = $categories[0]; // Get the first category
                                             ?> 
-                                            <?php _e('Cat:', 'exclusive');  ?>
+                                            <?php _e('Cat:', 'mexclusive');  ?>
                                             <a href="<?php echo esc_url(get_category_link($first_category)); ?>"><?php echo esc_html($first_category->name); ?></a>
                                             <?php
                                         }

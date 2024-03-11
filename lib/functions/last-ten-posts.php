@@ -34,11 +34,11 @@ function display_last_ten_posts_in_current_category() {
             // Restore original post data
             wp_reset_postdata();
         } else {
-            echo esc_html__('No posts found in this category.', 'exclusive');
+            echo esc_html__('No posts found in this category.', 'mexclusive');
         }
     } else {
 
-        echo esc_html__('This post does not have any categories.', 'exclusive');
+        echo esc_html__('This post does not have any categories.', 'mexclusive');
     }
 }
 ?>

@@ -3,7 +3,7 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-12">
-            <h1><?php printf(esc_html__('All posts with tag: %s', 'exclusive'), single_tag_title('', false)); ?></h1>
+            <h1><?php printf(esc_html__('All posts with tag: %s', 'mexclusive'), single_tag_title('', false)); ?></h1>
         </div>
     </div>
     
@@ -47,12 +47,12 @@
                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                     <div class="d-flex justify-content-between">
                         <i class="fa fa-clock"></i> <?php display_reading_time(); ?>
-                        <?php exclusive_postedOn(); ?>
+                        <?php mexclusive_postedOn(); ?>
                         <i class="fa fa-eye"></i>
                         <?php
-                        $views = exclusive_display_post_views();
+                        $views = mexclusive_display_post_views();
                         printf(
-                            _n('%d View', '%d Views', $views, 'exclusive'),
+                            _n('%d View', '%d Views', $views, 'mexclusive'),
                             $views
                         );
                         ?>
@@ -63,13 +63,13 @@
                                     '%s Comment',
                                     '%s Comments',
                                     get_comments_number(),
-                                    'exclusive'
+                                    'mexclusive'
                                 ),
                                 number_format_i18n(get_comments_number())
                             );
                             ?>
                         </a>
-                        <?php exclusive_authorInfo(); ?>
+                        <?php mexclusive_authorInfo(); ?>
                     </div>
                     <div><?php the_excerpt(); ?></div>
                 </div>
@@ -85,8 +85,8 @@
                         'format'       => '/page/%#%', // Pagination structure
                         'current'      => $paged, // Current page number
                         'total'        => $tag_posts_query->max_num_pages, // Total number of pages
-                        'prev_text'    => __( '&laquo;', 'exclusive' ),
-                        'next_text'    => __( '&raquo;', 'exclusive' ),
+                        'prev_text'    => __( '&laquo;', 'mexclusive' ),
+                        'next_text'    => __( '&raquo;', 'mexclusive' ),
                         'type'         => 'list',
                     );
 
@@ -98,7 +98,7 @@
     <?php else : ?>
         <div class="row py-5">
             <div class="col-12">
-                <p><?php esc_html_e('No posts found with this tag.', 'exclusive'); ?></p>
+                <p><?php esc_html_e('No posts found with this tag.', 'mexclusive'); ?></p>
             </div>
         </div>
     <?php endif; ?>

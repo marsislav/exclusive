@@ -1,5 +1,5 @@
 <?php 
-function exclusive_theme_support () {
+function mexclusive_theme_support () {
 add_theme_support('title-tag');
 
 add_theme_support('category-thumbnails');
@@ -29,6 +29,6 @@ add_theme_support('align-wide');
 
 
 //Custom image sizes
-add_image_size('exclusive-image', 1200, 0);
+add_image_size('mexclusive-image', 1200, 0);
 }
-add_action('after_setup_theme', 'exclusive_theme_support');
+add_action('after_setup_theme', 'mexclusive_theme_support');

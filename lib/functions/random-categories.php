@@ -65,7 +65,7 @@ function display_last_post_in_random_categories() {
             wp_reset_postdata();
         } else {
             $output .= sprintf(
-                esc_html__('No posts found in category %s', 'exclusive'),
+                esc_html__('No posts found in category %s', 'mexclusive'),
                 $category->name
             );
         }

@@ -20,18 +20,20 @@
                                     while ($latest_post->have_posts()) : $latest_post->the_post(); ?>
                                             <?php if (has_post_thumbnail()) {?>
                                     <div class="post-image-wrap">
-                                        <?php the_post_thumbnail( 'full', array( 'class' => 'post-thumb' ) );  ?>
+                                        <a href="<?php the_permalink();?>">
+                                            <?php the_post_thumbnail( 'full', array( 'class' => 'post-thumb' ) );  ?>
+                                        </a>
                                     </div>
                                     <?php } ?>
 
                         <div class="d-flex justify-content-between">
                             <i class="fa fa-clock"></i> <?php display_reading_time();?>
-                            <?php exclusive_postedOn(); ?>
+                            <?php mexclusive_postedOn(); ?>
                             <i class="fa fa-eye"></i> 
                                 <?php
-                                    $views = exclusive_display_post_views();
+                                    $views = mexclusive_display_post_views();
                                     printf(
-                                        _n('%d View', '%d Views', $views, 'exclusive'),
+                                        _n('%d View', '%d Views', $views, 'mexclusive'),
                                         $views
                                     );
                                 ?>
@@ -42,13 +44,13 @@
                                                 '%s Comment',
                                                 '%s Comments',
                                                 get_comments_number(),
-                                                'exclusive'
+                                                'mexclusive'
                                             ),
                                             number_format_i18n(get_comments_number())
                                         ); 
                                     ?>
                                 </a>
-                                <?php exclusive_authorInfo();?>
+                                <?php mexclusive_authorInfo();?>
                         </div>
                     </div>
                         <div class="border-bottom py-3">
@@ -67,7 +69,7 @@
                        <div class="bg-light rounded p-4 pt-0">
                             <div class="row g-4">
                                 <div class="col-12">                              
-                                    <h3> <?php _e('Explore all categories', 'exclusive');?></h3>
+                                    <h3> <?php _e('Explore all categories', 'mexclusive');?></h3>
                                         <ul class="category-list">
                                             <?php
                                                 $categories = get_categories(array(

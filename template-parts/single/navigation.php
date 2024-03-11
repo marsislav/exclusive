@@ -5,9 +5,9 @@ $next = get_next_post();
 <?php if ($prev || $next) {?>
 <nav class="bg-light rounded my-4 p-4" role="navigation">
     <h2 class="screen-reader-text">
-        <?php esc_attr_e('Post Navigation', 'exclusive'); ?>
+        <?php esc_attr_e('Post Navigation', 'mexclusive'); ?>
     </h2>
-    <h4 class="mb-4"><?php _e('You Might Also Like', 'exclusive'); ?></h4>
+    <h4 class="mb-4"><?php _e('You Might Also Like', 'mexclusive'); ?></h4>
     <div class="row g-4">
         <?php if ($prev) { ?>
         <div class="col-lg-6">

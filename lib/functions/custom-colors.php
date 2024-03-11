@@ -3,7 +3,7 @@
 function custom_theme_colors_customize_register( $wp_customize ) {
     // Add a section for colors
     $wp_customize->add_section( 'custom_theme_colors', array(
-        'title' => __( 'Theme Colors', 'exclusive' ),
+        'title' => __( 'Theme Colors', 'mexclusive' ),
         'priority' => 30,
     ) );
 
@@ -15,7 +15,7 @@ function custom_theme_colors_customize_register( $wp_customize ) {
 
     // Add a control for primary color
     $wp_customize->add_control( new WP_Customize_Color_Control( $wp_customize, 'primary_color', array(
-        'label' => __( 'Primary Color', 'exclusive' ),
+        'label' => __( 'Primary Color', 'mexclusive' ),
         'section' => 'custom_theme_colors',
         'settings' => 'primary_color',
     ) ) );
@@ -55,7 +55,7 @@ function custom_theme_colors_css() {
         }
     ";
 
-    wp_add_inline_style( 'exclusive_style', $custom_css );
+    wp_add_inline_style( 'mexclusive_style', $custom_css );
 }
 
 add_action( 'wp_enqueue_scripts', 'custom_theme_colors_css' );

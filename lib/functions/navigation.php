@@ -1,9 +1,9 @@
 <?php
-function exclusive_register_menus() {
+function mexclusive_register_menus() {
     register_nav_menus(array(
-        'main-menu' => esc_html__('Main Menu', 'exclusive'),
-        'footer-menu' => esc_html__('Footer Menu', 'exclusive'),
+        'main-menu' => esc_html__('Main Menu', 'mexclusive'),
+        'footer-menu' => esc_html__('Footer Menu', 'mexclusive'),
     ));
 }
 
-add_action('init', 'exclusive_register_menus');
+add_action('init', 'mexclusive_register_menus');

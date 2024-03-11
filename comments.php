@@ -3,7 +3,7 @@ if ( post_password_required() ) {
 	return;
 }
 
-$discussion = exclusive_get_discussion_data();
+$discussion = mexclusive_get_discussion_data();
 ?>
 
 <div id="comments" class="bg-light rounded p-4 <?php echo comments_open() ? 'comments-area' : 'comments-area comments-closed'; ?>">
@@ -12,14 +12,14 @@ $discussion = exclusive_get_discussion_data();
             <?php
 		if ( comments_open() ) {
 			if ( have_comments() ) {
-				_e( 'Join the Conversation', 'exclusive' );
+				_e( 'Join the Conversation', 'mexclusive' );
 			} else {
-				_e( 'Leave a comment', 'exclusive' );
+				_e( 'Leave a comment', 'mexclusive' );
 			}
 		} else {
 			if ( '1' == $discussion->responses ) {
 				/* translators: %s: Post title. */
-				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'exclusive' ), get_the_title() );
+				printf( _x( 'One reply on &ldquo;%s&rdquo;', 'comments title', 'mexclusive' ), get_the_title() );
 			} else {
 				printf(
 					/* translators: 1: Number of comments, 2: Post title. */
@@ -28,7 +28,7 @@ $discussion = exclusive_get_discussion_data();
 						'%1$s replies on &ldquo;%2$s&rdquo;',
 						$discussion->responses,
 						'comments title',
-						'exclusive'
+						'mexclusive'
 					),
 					number_format_i18n( $discussion->responses ),
 					get_the_title()
@@ -49,7 +49,7 @@ $discussion = exclusive_get_discussion_data();
 
 		// Show comment form at top if showing newest comments at the top.
 		if ( comments_open() ) {
-			exclusive_comment_form( 'desc' );
+			mexclusive_comment_form( 'desc' );
 		}
 
 		?>
@@ -57,8 +57,8 @@ $discussion = exclusive_get_discussion_data();
         <?php
 			wp_list_comments(
 				array(
-					'walker'      => new exclusive_Walker_Comment(),
-					'avatar_size' => exclusive_get_avatar_size(),
+					'walker'      => new mexclusive_Walker_Comment(),
+					'avatar_size' => mexclusive_get_avatar_size(),
 					'short_ping'  => true,
 					'style'       => 'ol',
 				)
@@ -69,13 +69,13 @@ $discussion = exclusive_get_discussion_data();
 
 		// Show comment navigation.
 		if ( have_comments() ){
-			$prev_icon     = exclusive_get_icon_svg( 'chevron_left', 22 );
-			$next_icon     = exclusive_get_icon_svg( 'chevron_right', 22 );
-			$comments_text = __( 'Comments', 'exclusive' );
+			$prev_icon     = mexclusive_get_icon_svg( 'chevron_left', 22 );
+			$next_icon     = mexclusive_get_icon_svg( 'chevron_right', 22 );
+			$comments_text = __( 'Comments', 'mexclusive' );
 			the_comments_navigation(
 				array(
-					'prev_text' => sprintf( '%s <span class="nav-prev-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span>', $prev_icon, __( 'Previous', 'exclusive' ), __( 'Comments', 'exclusive' ) ),
-					'next_text' => sprintf( '<span class="nav-next-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span> %s', __( 'Next', 'exclusive' ), __( 'Comments', 'exclusive' ), $next_icon ),
+					'prev_text' => sprintf( '%s <span class="nav-prev-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span>', $prev_icon, __( 'Previous', 'mexclusive' ), __( 'Comments', 'mexclusive' ) ),
+					'next_text' => sprintf( '<span class="nav-next-text"><span class="primary-text">%s</span> <span class="secondary-text">%s</span></span> %s', __( 'Next', 'mexclusive' ), __( 'Comments', 'mexclusive' ), $next_icon ),
 				)
 			);
 		}
@@ -84,8 +84,8 @@ $discussion = exclusive_get_discussion_data();
 		if ( comments_open() && 'asc' === strtolower( get_option( 'comment_order', 'asc' ) ) ) :
 			?>
     <div class="comment-form-flex comment-form-wrapper">
-        <h2 class="comments-title"><?php _e( 'Leave a comment', 'exclusive' ); ?></h2>
-        <?php exclusive_comment_form( 'asc' ); ?>
+        <h2 class="comments-title"><?php _e( 'Leave a comment', 'mexclusive' ); ?></h2>
+        <?php mexclusive_comment_form( 'asc' ); ?>
     </div>
     <?php
 		endif;
@@ -94,7 +94,7 @@ $discussion = exclusive_get_discussion_data();
 		if ( ! comments_open() ) :
 			?>
     <p class="no-comments">
-        <?php _e( 'Comments are closed.', 'exclusive' ); ?>
+        <?php _e( 'Comments are closed.', 'mexclusive' ); ?>
     </p>
     <?php
 		endif;
@@ -102,7 +102,7 @@ $discussion = exclusive_get_discussion_data();
 	else :
 
 		// Show comment form.
-		exclusive_comment_form( true );
+		mexclusive_comment_form( true );
 
 	endif; // if have_comments();
 	?>
@@ -110,7 +110,7 @@ $discussion = exclusive_get_discussion_data();
 
 <?php
 
-function exclusive_get_discussion_data() {
+function mexclusive_get_discussion_data() {
 	static $discussion, $post_id;
 
 	$current_post_id = get_the_ID();
@@ -145,7 +145,7 @@ function exclusive_get_discussion_data() {
 }
 
 
-	function exclusive_comment_form( $order ) {
+	function mexclusive_comment_form( $order ) {
 		if ( true === $order || strtolower( $order ) === strtolower( get_option( 'comment_order', 'asc' ) ) ) {
 
 			comment_form(
@@ -156,7 +156,7 @@ function exclusive_get_discussion_data() {
 		}
 	}
 
-	class exclusive_Walker_Comment extends Walker_Comment {
+	class mexclusive_Walker_Comment extends Walker_Comment {
 
 		/**
 		 * Outputs a comment in the HTML5 format.
@@ -194,14 +194,14 @@ function exclusive_get_discussion_data() {
 							 * Using the `check` icon instead of `check_circle`, since we can't add a
 							 * fill color to the inner check shape when in circle form.
 							 */
-							if ( exclusive_is_comment_by_post_author( $comment ) ) {
-								printf( '<span class="post-author-badge" aria-hidden="true">%s</span>', exclusive_get_icon_svg( 'check', 24 ) );
+							if ( mexclusive_is_comment_by_post_author( $comment ) ) {
+								printf( '<span class="post-author-badge" aria-hidden="true">%s</span>', mexclusive_get_icon_svg( 'check', 24 ) );
 							}
 	
 							printf(
 								wp_kses(
 									/* translators: %s: Comment author link. */
-									__( '%s <span class="screen-reader-text says">says:</span>', 'exclusive' ),
+									__( '%s <span class="screen-reader-text says">says:</span>', 'mexclusive' ),
 									array(
 										'span' => array(
 											'class' => array(),
@@ -220,7 +220,7 @@ function exclusive_get_discussion_data() {
             <div class="comment-metadata">
                 <?php
 							/* translators: 1: Comment date, 2: Comment time. */
-							$comment_timestamp = sprintf( __( '%1$s at %2$s', 'exclusive' ), get_comment_date( '', $comment ), get_comment_time() );
+							$comment_timestamp = sprintf( __( '%1$s at %2$s', 'mexclusive' ), get_comment_date( '', $comment ), get_comment_time() );
 	
 							printf(
 								'<a href="%s"><time datetime="%s" title="%s">%s</time></a>',
@@ -230,17 +230,17 @@ function exclusive_get_discussion_data() {
 								$comment_timestamp
 							);
 	
-							$edit_comment_icon = exclusive_get_icon_svg( 'edit', 16 );
-							edit_comment_link( __( 'Edit', 'exclusive' ), ' <span class="edit-link-sep">&mdash;</span> <span class="edit-link">' . $edit_comment_icon, '</span>' );
+							$edit_comment_icon = mexclusive_get_icon_svg( 'edit', 16 );
+							edit_comment_link( __( 'Edit', 'mexclusive' ), ' <span class="edit-link-sep">&mdash;</span> <span class="edit-link">' . $edit_comment_icon, '</span>' );
 							?>
             </div><!-- .comment-metadata -->
 
             <?php
 						$commenter = wp_get_current_commenter();
 						if ( $commenter['comment_author_email'] ) {
-							$moderation_note = __( 'Your comment is awaiting moderation.', 'exclusive' );
+							$moderation_note = __( 'Your comment is awaiting moderation.', 'mexclusive' );
 						} else {
-							$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'exclusive' );
+							$moderation_note = __( 'Your comment is awaiting moderation. This is a preview; your comment will be visible after it has been approved.', 'mexclusive' );
 						}
 						?>
 
@@ -274,12 +274,12 @@ function exclusive_get_discussion_data() {
 		}
 	}
 
-	function exclusive_get_avatar_size() {
+	function mexclusive_get_avatar_size() {
 		return 100;
 	}
 	
 
-	function exclusive_is_comment_by_post_author( $comment = null ) {
+	function mexclusive_is_comment_by_post_author( $comment = null ) {
 		if ( is_object( $comment ) && $comment->user_id > 0 ) {
 			$user = get_userdata( $comment->user_id );
 			$post = get_post( $comment->comment_post_ID );
@@ -290,12 +290,12 @@ function exclusive_get_discussion_data() {
 		return false;
 	}
 
-	function exclusive_get_icon_svg( $icon, $size = 24 ) {
-		return exclusive_SVG_Icons::get_svg( 'ui', $icon, $size );
+	function mexclusive_get_icon_svg( $icon, $size = 24 ) {
+		return mexclusive_SVG_Icons::get_svg( 'ui', $icon, $size );
 	}
 
 
-	class exclusive_SVG_Icons {
+	class mexclusive_SVG_Icons {
 
 		/**
 		 * Gets the SVG code for a given icon.

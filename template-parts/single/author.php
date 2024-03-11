@@ -1,7 +1,7 @@
 <div class="tab-content author-info">
     <div id="tab-1" class="tab-pane fade show active">
         <h2 class="screen-reader-text">
-            <?php esc_attr_e('About the author', 'exclusive'); ?>
+            <?php esc_attr_e('About the author', 'mexclusive'); ?>
         </h2>
 
         <?php 
@@ -23,7 +23,7 @@
                     <a href="<?php echo esc_url($author_website);?>" target="_blank"><h3><?php echo $author_display; ?></h3></a>
                 <?php } else { ?> <h3><?php echo $author_display; ?></h3> <?php }?>
                     <div class="author_posts">
-                        <a href="<?php echo esc_url($author_posts_url);?>"><?php printf(esc_html(_n('%s post', '%s posts', $author_posts, 'exclusive')), number_format_i18n($author_posts));?></a>
+                        <a href="<?php echo esc_url($author_posts_url);?>"><?php printf(esc_html(_n('%s post', '%s posts', $author_posts, 'mexclusive')), number_format_i18n($author_posts));?></a>
                     </div>
                 <p class="mb-0"><?php echo esc_html( $author_description);?>
                 </p>

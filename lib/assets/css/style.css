@@ -305,11 +305,17 @@ h6 {
 @media (max-width: 1199px) {
   .navbar .dropdown-menu {
     display: block;
+    border: 0;
+    background-color: transparent;
   }
   .navbar .dropdown-menu li:before {
     content: "\21E2";
     font-weight: bold;
     margin-right: 10px;
+  }
+
+  .is-mobile {
+    justify-content: space-between;
   }
 }
 
@@ -325,6 +331,43 @@ button#search-icon-1 {
 input.form-control.p-3 {
   width: 67vw;
 }
+
+@media (max-width: 1150px) {
+  input.form-control.p-3 {
+    width: 65vw;
+  }
+}
+
+@media (max-width: 960px) {
+  input.form-control.p-3 {
+    width: 63vw;
+  }
+}
+
+@media (max-width: 940px) {
+  input.form-control.p-3 {
+    width: 60vw;
+  }
+}
+
+@media (max-width: 740px) {
+  input.form-control.p-3 {
+    width: 55vw;
+  }
+}
+
+@media (max-width: 640px) {
+  input.form-control.p-3 {
+    width: 50vw;
+  }
+}
+@media (max-width: 330px) {
+  input.form-control.p-3 {
+    width: 46vw;
+    background: red;
+  }
+}
+
 /*** Navbar End ***/
 
 /*** Features Start ***/

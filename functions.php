@@ -20,7 +20,7 @@ require_once('lib/functions/custom-bgr.php');
 
 //Leave it here
 
-function exclusive_sanitize_footer_bg( $input ) {
+function mexclusive_sanitize_footer_bg( $input ) {
     $valid = array('light', 'dark');
     if( in_array($input, $valid, true) ) {
         return $input;

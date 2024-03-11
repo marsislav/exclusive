@@ -13,13 +13,13 @@
             $author_id = get_the_author_meta('ID');
             $author_description = get_the_author_meta('description', $author_id);
             $author_name = get_the_author_meta('display_name', $author_id);?>
-            <h4><?php esc_html_e('Author name:', 'exclusive'); ?> <?php echo esc_html($author_name); ?></h4>
+            <h4><?php esc_html_e('Author name:', 'mexclusive'); ?> <?php echo esc_html($author_name); ?></h4>
             <?php echo esc_html($author_description);?>
         </div>
     </div>
     <div class="row py-5">
         <div class="col-12">
-            <h3><?php _e('Here you can find all posts by the author:', 'exclusive');?></h3>
+            <h3><?php _e('Here you can find all posts by the author:', 'mexclusive');?></h3>
         </div>
     </div>
 
@@ -62,12 +62,12 @@
                     <h5 class="card-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h5>
                     <div class="d-flex justify-content-between">
                     <i class="fa fa-clock"></i> <?php display_reading_time();?>
-                    <?php exclusive_postedOn(); ?>
+                    <?php mexclusive_postedOn(); ?>
                     <i class="fa fa-eye"></i> 
                     <?php
-                        $views = exclusive_display_post_views();
+                        $views = mexclusive_display_post_views();
                         printf(
-                            _n('%d View', '%d Views', $views, 'exclusive'),
+                            _n('%d View', '%d Views', $views, 'mexclusive'),
                             $views );
                     ?>
                     <a href="#comments" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 
@@ -77,7 +77,7 @@
                                     '%s Comment',
                                     '%s Comments',
                                     get_comments_number(),
-                                    'exclusive'
+                                    'mexclusive'
                                 ),
                                 number_format_i18n(get_comments_number())
                             ); 
@@ -94,7 +94,7 @@
         wp_reset_postdata();
     else :
         // No posts found
-        echo esc_html__('No posts found by this author.', 'exclusive');
+        echo esc_html__('No posts found by this author.', 'mexclusive');
     endif;
     ?>
    
@@ -107,8 +107,8 @@
                 'format'       => '?paged=%#%',
                 'current'      => max( 1, get_query_var( 'paged' ) ),
                 'total'        => $author_posts_query->max_num_pages,
-                'prev_text'    => __( '&laquo;', 'exclusive' ),
-                'next_text'    => __( '&raquo;', 'exclusive' ),
+                'prev_text'    => __( '&laquo;', 'mexclusive' ),
+                'next_text'    => __( '&raquo;', 'mexclusive' ),
                 'type'         => 'list',
             );
 
