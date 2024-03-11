@@ -15,21 +15,34 @@
   background: rgba(0, 0, 0, 0.3);
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #000000;
+}
+
 .bypostauthor,
 .wp-caption-text,
 .gallery-caption {
   font-style: italic;
 }
 .alignright {
-  text-align: right;
+  float: right; /* Float the element to the right */
+  margin-left: 20px; /* Add some left margin for spacing */
 }
 
 .alignleft {
-  text-align: left;
+  float: left; /* Float the element to the right */
+  margin-right: 20px; /* Add some left margin for spacing */
 }
 
 .aligncenter {
-  text-align: center;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .screen-reader-text {
@@ -510,6 +523,16 @@ ul.last-ten-posts li {
 
 /*** Main Menu ***/
 
+/*** Post Start ***/
+.post-image-wrap img {
+  max-width: 100%;
+  height: auto;
+}
+
+.pagination {
+  justify-content: center;
+}
+/*** Post End ***/
 li.menu-item {
   margin: 0 15px !important;
 }
@@ -612,4 +635,32 @@ img.custom-logo {
 
 .last-ten-posts a {
   margin-left: 8px;
+}
+
+/****Pagination****/
+.pagination-container {
+  max-width: 320px;
+  margin: 0 auto;
+}
+
+ul.page-numbers {
+  display: flex;
+  justify-content: space-between;
+}
+ul.page-numbers li {
+  list-style: none;
+}
+
+ul.page-numbers li span,
+ul.page-numbers li a {
+  background: #1b7dff;
+  color: #fff;
+  padding: 10px 13px;
+  border-radius: 50px;
+  transition: 0.3s;
+}
+
+ul.page-numbers li span:hover,
+ul.page-numbers li a:hover {
+  background: #1a70e0;
 }

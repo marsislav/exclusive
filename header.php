@@ -25,6 +25,7 @@
         <div class="container-fluid sticky-top px-0">
             <div class="container-fluid topbar bg-dark d-none d-lg-block">
                 <?php get_template_part('template-parts/header/last-post-line'); ?>
+                
             </div>
             
             <div class="container-fluid bg-light">

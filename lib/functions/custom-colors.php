@@ -9,7 +9,7 @@ function custom_theme_colors_customize_register( $wp_customize ) {
 
     // Add a setting for primary color
     $wp_customize->add_setting( 'primary_color', array(
-        'default' => '#007bff',
+        'default' => '',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
@@ -50,7 +50,7 @@ function custom_theme_colors_css() {
         }
    
         /* Customize headings */
-        h1, h2, h3 {
+        h1,h2{
             color: $primary_color;
         }
     ";

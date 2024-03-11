@@ -3,31 +3,46 @@
 <div class="container py-5">
     <div class="row">
         <div class="col-12">
-            <h1><?php printf(esc_html__('All posts in category: %s', 'exclusive'), single_cat_title('', false)); ?></h1>
+            <h1><?php printf(esc_html__('All posts with tag: %s', 'exclusive'), single_tag_title('', false)); ?></h1>
         </div>
     </div>
     
     <?php 
-    $category = get_queried_object(); // Get the current category
-    $category_id = $category->term_id; // Get the category ID
+    $tag = get_queried_object(); // Get the current tag
+    $tag_id = $tag->term_id; // Get the tag ID
+    
+    $paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1; // Get current page number
     
     $args = array(
-        'cat' => $category_id, // Specify the category ID
-        'posts_per_page' => -1 // Retrieve all posts in the category
+        'tag__in' => array($tag_id), // Specify the tag ID
+        'posts_per_page' => 10, // Retrieve 10 posts per page
+        'paged' => $paged // Pagination parameter
     );
-    $category_posts_query = new WP_Query($args);
+    $tag_posts_query = new WP_Query($args);
     
-    if ($category_posts_query->have_posts()) : ?>
+    if ($tag_posts_query->have_posts()) : ?>
         
-            <?php while ($category_posts_query->have_posts()) : $category_posts_query->the_post(); ?>
+            <?php while ($tag_posts_query->have_posts()) : $tag_posts_query->the_post(); ?>
             <div class="row card-body">
-                <div class="col-4">
+            <div class="col-md-4">
+                    <div class="position-relative">
+                    <?php if (has_category()) {?>
+                        <div class="position-absolute text-white px-4 py-2 bg-primary rounded" style="top: 20px; right: 20px;">                                                       
+                        <?php $categories = get_the_category();
+                            if (!empty($categories)) {
+                            $first_category = $categories[0]; // Get the first category
+                            ?>
+                                <a href="<?php echo esc_url(get_category_link($first_category)); ?>"><?php echo esc_html($first_category->name); ?></a>
+                            <?php } ?>         
+                        </div> 
+                        <?php } ?>
                     <?php if (has_post_thumbnail()) : ?>
                         <a href="<?php the_permalink(); ?>">
                             <img class="card-img-top" src="<?php the_post_thumbnail_url('medium'); ?>" alt="<?php the_title_attribute(); ?>">
                         </a>
                     <?php endif; ?>
                 </div>
+            </div>
                 <div class="col-8">
                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
                     <div class="d-flex justify-content-between">
@@ -58,20 +73,32 @@
                     </div>
                     <div><?php the_excerpt(); ?></div>
                 </div>
-                        </div>
+            </div>
             <?php endwhile; ?>
         
         <div class="row py-5">
             <div class="col-12">
                 <div class="pagination-container">
-                    <?php get_template_part('template-parts/stuff/pagination'); ?>
+                    <?php
+                    $paginate_args = array(
+                        'base'         => get_pagenum_link(1) . '%_%',
+                        'format'       => '/page/%#%', // Pagination structure
+                        'current'      => $paged, // Current page number
+                        'total'        => $tag_posts_query->max_num_pages, // Total number of pages
+                        'prev_text'    => __( '&laquo;', 'exclusive' ),
+                        'next_text'    => __( '&raquo;', 'exclusive' ),
+                        'type'         => 'list',
+                    );
+
+                    echo paginate_links( $paginate_args );
+                    ?>
                 </div>
             </div>
         </div>
     <?php else : ?>
         <div class="row py-5">
             <div class="col-12">
-                <p><?php esc_html_e('No posts found in this category.', 'exclusive'); ?></p>
+                <p><?php esc_html_e('No posts found with this tag.', 'exclusive'); ?></p>
             </div>
         </div>
     <?php endif; ?>

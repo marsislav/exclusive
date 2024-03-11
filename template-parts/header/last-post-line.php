@@ -40,6 +40,11 @@
                                 </div>
                             </div>
                         </div>
-                        
+                        <div class="top-link flex-lg-wrap">
+                        <?php
+                        $current_day = date_i18n(get_option('date_format'));
+                        echo esc_html__('Today is: ', 'exclusive') . $current_day;
+                        ?>
+                        </div>
                     </div>
                 </div>

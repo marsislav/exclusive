@@ -27,6 +27,7 @@ add_theme_support('post-formats', array (
 ));
 add_theme_support('align-wide');
 
+
 //Custom image sizes
 add_image_size('exclusive-image', 1200, 0);
 }

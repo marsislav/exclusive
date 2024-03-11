@@ -33,7 +33,7 @@
 
                     <?php if (has_category()) {?>
                     <div class="position-absolute text-white px-4 py-2 bg-primary rounded" style="top: 20px; right: 20px;">                                                       
-                        <?php echo get_the_category_list(); ?>          
+                    <a href="<?php echo esc_url(get_category_link($first_category)); ?>"><?php echo esc_html($first_category->name); ?></a>         
                     </div> 
                     <?php } ?>
                 </div>
@@ -63,8 +63,21 @@
                     <?php exclusive_authorInfo();?>
                 </div>
                 <div class="my-4">
+                    
                     <?php the_content();?>
+                    <div class="pagination-container">
+                    <?php wp_link_pages( array(
+                        'before'      => '<div class="pagination"><span class="page-links-title">' . __( 'Pages:', 'exclusive' ) . '</span>',
+                        'after'       => '</div>',
+                        'link_before' => '<span class="page-number">',
+                        'link_after'  => '</span>',
+                        'next_or_number' => 'number',
+                        'nextpagelink' => __( 'Next page', 'exclusive' ),
+                        'previouspagelink' => __( 'Previous page', 'exclusive' ),
+                    ) );?>
+                    </div>
                 </div>
+<hr>
                          
                 <?php if (has_tag()) {?>
                 <div class="tab-class ">
@@ -74,20 +87,20 @@
                                 <h5 class="mt-2 me-3 mb-0"><?php _e('Tags', 'exclusive') ?>:</h5>
                             </li>                  
                             <?php
-                                // Get all tags
-                                $tags = get_tags();
-                                if ($tags) {
-                                    // Loop through each tag
-                                    foreach ($tags as $tag) {?>
-                                        <li class="nav-item mb-3">
-                                            <a class="d-flex py-2 bg-light rounded-pill active me-2" data-bs-toggle="pill" href="<?php echo get_tag_link($tag->term_id); ?>">
-                                                <span class="text-dark" style="width: 100px;">
-                                                    <?php echo $tag->name; ?>
-                                                </span>
-                                            </a>
-                                        </li>
-                                        <?php }
-                                        } ?>
+// Get all tags
+$tags = get_tags();
+if ($tags) {
+    // Loop through each tag
+    foreach ($tags as $tag) {?>
+        <li class="nav-item mb-3">
+            <a class="d-flex py-2 bg-light rounded-pill me-2" href="<?php echo esc_url(get_tag_link($tag->term_id)); ?>">
+                <span class="text-dark" style="width: 100px;">
+                    <?php echo $tag->name; ?>
+                </span>
+            </a>
+        </li>
+<?php }
+} ?>
                         </ul>
                     </div>
                 </div>
@@ -103,7 +116,9 @@
             </div>
                         <?php get_sidebar();?>
         </div>
-    </div>            
+    </div>  
+    
+    
 </div>
 
         <?php }?>
