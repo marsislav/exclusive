@@ -364,7 +364,6 @@ input.form-control.p-3 {
 @media (max-width: 330px) {
   input.form-control.p-3 {
     width: 46vw;
-    background: red;
   }
 }
 
@@ -572,6 +571,21 @@ ul.last-ten-posts li {
   height: auto;
 }
 
+@media (max-width: 967px) {
+  .post-info {
+    display: none !important;
+  }
+}
+
+.post-info {
+  color: #000;
+}
+
+.owl-carousel .owl-item img {
+  width: 100%;
+  height: 180px;
+}
+
 .pagination {
   justify-content: center;
 }
@@ -624,7 +638,6 @@ li.menu-item {
 }
 
 .c-footer {
-  background-color: #222222;
   padding: rem-calc(40) 0;
   color: #ffffff;
 }
@@ -642,7 +655,6 @@ li.menu-item {
 }
 
 .c-site-info {
-  background-color: #2b2b2b;
   padding: rem-calc(15) 0;
   text-align: center;
   color: #ffffff;
@@ -706,4 +718,13 @@ ul.page-numbers li a {
 ul.page-numbers li span:hover,
 ul.page-numbers li a:hover {
   background: #1a70e0;
+}
+
+span.page-numbers.current {
+  font-weight: 900;
+}
+
+.position-absolute.text-white.px-4.py-2.bg-primary.rounded a {
+  color: #fff !important;
+  text-shadow: -3px 0px 10px #000000;
 }

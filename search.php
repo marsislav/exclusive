@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-8">
                     <h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
-                    <div class="d-flex justify-content-between">
+                    <div class="d-flex justify-content-between post-info mb-2">
                     <i class="fa fa-clock"></i> <?php display_reading_time();?>
                     <?php mexclusive_postedOn(); ?>
                     <i class="fa fa-eye"></i> 
@@ -41,7 +41,7 @@
                             _n('%d View', '%d Views', $views, 'mexclusive'),
                             $views );
                     ?>
-                    <a href="#comments" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 
+                    <a href="<?php the_permalink();?>#comments" class="text-dark link-hover me-3">
                         <?php 
                             printf(
                                 _n(

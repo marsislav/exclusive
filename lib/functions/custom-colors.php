@@ -53,6 +53,13 @@ function custom_theme_colors_css() {
         h1,h2{
             color: $primary_color;
         }
+        #submit {
+            border: 1px solid $primary_color;
+        }
+
+        #submit:hover {
+            background: $primary_color;
+        }
     ";
 
     wp_add_inline_style( 'mexclusive_style', $custom_css );

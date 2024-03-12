@@ -14,7 +14,7 @@
                     ?>
                 </div>
                 <div class="col-lg-9">
-                    <div class="d-flex position-relative rounded-pill overflow-hidden">
+                    <div class="d-flex position-relative overflow-hidden">
                         <?php echo '<small class="text-body fw-normal" style="letter-spacing: 12px;">' . esc_html(bloginfo('description')) . '</small>'?>
                     </div>
                 </div>
@@ -30,7 +30,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12 text-center text-md-start mb-3 mb-md-0">
-                <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i><?php get_template_part( 'template-parts/footer/info' ); ?></span>
+            <a href="<?php echo esc_url(home_url('/')); ?>"><span class="text-light"><?php get_template_part( 'template-parts/footer/info' ); ?></span></a>
             </div>
         </div>
     </div>

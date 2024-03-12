@@ -7,7 +7,7 @@
                         <?php
                         $args = array(
                             'post_type' => 'post',
-                            'posts_per_page' => 20,
+                            'posts_per_page' => 30,
                             'order' => 'DESC',
                             'orderby' => 'date'
                         );
@@ -21,7 +21,7 @@
                             <div class="bg-light rounded">
                                 <div class="rounded-top overflow-hidden">
                                     <?php if (has_post_thumbnail()) : ?>
-                                        <img src="<?php the_post_thumbnail_url('medium'); ?>" class="img-zoomin img-fluid rounded-top w-100" alt="">
+                                        <a href="<?php the_permalink(); ?>"><img src="<?php the_post_thumbnail_url('medium'); ?>" class="img-zoomin img-fluid rounded-top w-100" alt=""></a>
                                     <?php endif; ?>
                                 </div>
                             <div class="d-flex flex-column p-4">

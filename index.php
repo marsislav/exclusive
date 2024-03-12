@@ -18,14 +18,14 @@
                     if ($latest_post->have_posts()) :
                         while ($latest_post->have_posts()) : $latest_post->the_post(); ?>
                             <?php if (has_post_thumbnail()) {?>
-                                <div class="post-image-wrap">
+                                <div class="post-image-wrap mb-3">
                                     <a href="<?php the_permalink();?>">
                                         <?php the_post_thumbnail( 'full', array( 'class' => 'post-thumb' ) ); ?>
                                     </a>
                                 </div>
                             <?php } ?>
 
-                            <div class="d-flex justify-content-between">
+                            <div class="d-flex justify-content-between post-info">
                                 <i class="fa fa-clock"></i> <?php display_reading_time(); ?>
                                 <?php mexclusive_postedOn(); ?>
                                 <i class="fa fa-eye"></i> 

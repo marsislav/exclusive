@@ -16,7 +16,7 @@ require_once('lib/functions/custom-colors.php');
 require_once('lib/functions/get-author.php');
 require_once('lib/functions/posted-on.php');
 require_once('lib/functions/custom-bgr.php');
-
+require_once('lib/functions/blocks.php');
 
 //Leave it here
 
