@@ -9,7 +9,7 @@ function custom_theme_colors_customize_register( $wp_customize ) {
 
     // Add a setting for primary color
     $wp_customize->add_setting( 'primary_color', array(
-        'default' => '',
+        'default' => '#1b7dff',
         'sanitize_callback' => 'sanitize_hex_color',
     ) );
 
