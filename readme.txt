@@ -3,7 +3,7 @@ Contributors: Marsislav
 Tags: blog, portfolio, responsive, customizable, news agency
 Requires at least: WordPress 5.0
 Tested up to: WordPress 6.3
-Stable tag: 1.0
+Stable tag: 1.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -23,8 +23,8 @@ mexclusive is a versatile and responsive WordPress theme suitable for blogs, por
 
 == Changelog ==
 
-= 1.0 =
-* Initial release
+= 1.0.1 =
+* Fixed footer layout. Fixed "Header Already sent"
 
 == Frequently Asked Questions ==
 

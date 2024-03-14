@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 // Register custom block styles
 function theme_register_block_styles() {
     // Register custom block style

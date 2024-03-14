@@ -1,5 +1,4 @@
-
-<?php 
+<?php
 
 function display_popular_tags() {
     // Get the top 10 popular tags
